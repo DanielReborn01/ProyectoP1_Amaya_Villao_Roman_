@@ -30,6 +30,30 @@ public class Conductor extends Usuario{
         this.estado = estado;
         this.vehiculo = vehiculo;
     }
+
+    public String getNumLicencia() {
+        return numLicencia;
+    }
+
+    public void setNumLicencia(String numLicencia) {
+        this.numLicencia = numLicencia;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
     
     
     
