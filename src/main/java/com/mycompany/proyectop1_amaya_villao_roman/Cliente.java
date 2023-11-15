@@ -27,4 +27,21 @@ public class Cliente extends Usuario{
         this.edad = edad;
         this.numTarjeta = numTarjeta;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public int getNumTarjeta() {
+        return numTarjeta;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setNumTarjeta(int numTarjeta) {
+        this.numTarjeta = numTarjeta;
+    }
+    
 }
