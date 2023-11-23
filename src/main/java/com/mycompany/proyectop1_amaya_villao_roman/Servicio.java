@@ -14,7 +14,7 @@ public class Servicio {
     private String origen;
     private String destino;
     private String fecha;
-    Conductor conductor;
+    private Conductor conductor;
     double ValorPagar;
     public Servicio(String origen,String destino, String fecha, Conductor conductor, double valorPagar){
         this.origen=origen;
