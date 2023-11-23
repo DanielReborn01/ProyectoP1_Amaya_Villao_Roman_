@@ -11,12 +11,14 @@ import java.util.ArrayList;
  * @author danie
  */
 public class Servicio {
-    ArrayList<Ruta> rutas = new ArrayList<>();
-    String fecha;
+    private String origen;
+    private String destino;
+    private String fecha;
     Conductor conductor;
     double ValorPagar;
-    public Servicio(ArrayList<Ruta>rutas, String fecha, Conductor conductor, double valorPagar){
-        this.rutas = rutas;
+    public Servicio(String origen,String destino, String fecha, Conductor conductor, double valorPagar){
+        this.origen=origen;
+        this.destino=destino;
         this.fecha = fecha;
         this.conductor = conductor;
         this.ValorPagar = valorPagar;
