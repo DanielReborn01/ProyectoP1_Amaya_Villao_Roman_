@@ -1,0 +1,1 @@
+numeroServicio,tipoEncomienda,cxantidadProductos,peso,subtotal

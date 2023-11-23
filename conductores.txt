@@ -1,0 +1,3 @@
+cedula,estado,codigoVehiculo
+0923543621,D,23
+0945698598,O,01

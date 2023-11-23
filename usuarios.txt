@@ -1,0 +1,4 @@
+cedula,nombre,apellido,user,contraseña,celular,tipoUsuario
+092354362,Luis,Mancer,lmancero,qwerty,0983637223,C
+0986353323,Juan,Gomez,jgome,38373,093727266,R
+0945698598,Marco,Cardenas,mcarden,abcde,0975342533,C
