@@ -9,11 +9,16 @@ package com.mycompany.proyectop1_amaya_villao_roman;
  * @author danie
  */
 public class Entrega extends Servicio{
-    int numProductos;
-    double peso;
-    TipoPago pago;
-    TipoEntrega entrega;
-    public void pagoSevicios(String origen,String destino, String fecha, Conductor conductor, double valorPagar, TipoPago pago, TipoEntrega entrega, double peso, int numProductos){
-        super(String origen,String destino, String fecha, Conductor conductor, double valorPagar);
+    private int numProductos;
+    private double peso;
+    private TipoPago pago;
+    private TipoEntrega entrega;
+
+    public Entrega(int numProductos, TipoPago pago, TipoEntrega entrega, String origen, String destino, String fecha, Conductor conductor, double valorPagar) {
+        super(origen, destino, fecha, conductor, valorPagar);
+        this.numProductos = numProductos;
+        this.pago = pago;
+        this.entrega = entrega;
     }
+    
 }
