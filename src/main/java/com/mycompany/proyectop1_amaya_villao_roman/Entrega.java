@@ -11,8 +11,9 @@ package com.mycompany.proyectop1_amaya_villao_roman;
 public class Entrega extends Servicio{
     int numProductos;
     double peso;
+    TipoPago pago;
     TipoEntrega entrega;
-    public void pagoSevicios(double valorPagar, TipoPago pago, TipoEntrega entrega, double peso, int numProductos){
-        
+    public void pagoSevicios(String origen,String destino, String fecha, Conductor conductor, double valorPagar, TipoPago pago, TipoEntrega entrega, double peso, int numProductos){
+        super(String origen,String destino, String fecha, Conductor conductor, double valorPagar);
     }
 }
