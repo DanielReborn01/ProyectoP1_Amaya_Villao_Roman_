@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Taxi extends Servicio{
     int numPersonas;
-    public Taxi(ArrayList<Ruta>rutas, String fecha, Conductor conductor, double valorPagar, int numPersonas){
-        super(rutas, fecha, conductor, valorPagar);
+    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar, int numPersonas){
+        super(origen, destino, fecha, conductor, valorPagar);
         this.numPersonas = numPersonas;
     }
     @Override
