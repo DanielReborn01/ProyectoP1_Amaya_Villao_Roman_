@@ -16,6 +16,15 @@ public class Servicio {
     private String fecha;
     private Conductor conductor;
     double ValorPagar;
+    
+    /**
+     * Constructor de la clase Servicio
+     * @param origen
+     * @param destino
+     * @param fecha
+     * @param conductor
+     * @param valorPagar 
+     */
     public Servicio(String origen,String destino, String fecha, Conductor conductor, double valorPagar){
         this.origen=origen;
         this.destino=destino;
@@ -24,6 +33,11 @@ public class Servicio {
         this.ValorPagar = valorPagar;
     }
     
+    
+    /**
+     * Este método se encarga del pago del servicio
+     * @param valorPagar es el valor que el cliente debe pagar
+     */
     public void pagoServicio(double valorPagar){
         
     }

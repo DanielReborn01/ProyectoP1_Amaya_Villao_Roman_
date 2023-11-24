@@ -21,7 +21,7 @@ public class TrabajoConArchivos {
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Hola!");
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Afios!");
         ManejoArchivos.EscribirArchivo("archivosalida.txt","NUevo!");
-        ManejoArchivos.LeeFichero("archivo.txt");
+        ManejoArchivos.LeerArchivo("archivo.txt");
         Date today = Calendar.getInstance().getTime();
          System.out.println(today);
         

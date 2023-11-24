@@ -13,14 +13,14 @@ public class Cliente extends Usuario{
     private int numTarjeta;
 
     /**
-     *
-     * @param numCedula
-     * @param apellidos
-     * @param nombres
-     * @param contraseña
-     * @param numCelular
-     * @param edad
-     * @param numTarjeta
+     * Constructor de la clase Cliente
+     * @param numCedula cédula del cliente
+     * @param apellidos apellidos del cleinte
+     * @param nombres nombres del cliente
+     * @param contraseña contraseña del usuario
+     * @param numCelular número telefónico del cliente
+     * @param edad edad del cliente
+     * @param numTarjeta número de la tarjeta de crédito del cliente
      */
     public Cliente(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, int edad, int numTarjeta){
         super(numCedula, apellidos, nombres, contraseña, numCelular);

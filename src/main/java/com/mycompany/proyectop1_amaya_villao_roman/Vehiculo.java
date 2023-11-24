@@ -14,6 +14,13 @@ public class Vehiculo {
     String marca;
     boolean esUnAuto;
     
+    /**
+     * Constructor de la clase Vehiculo
+     * @param placa
+     * @param modelo
+     * @param marca
+     * @param esUnAuto 
+     */
     public Vehiculo(String placa, String  modelo, String marca, boolean esUnAuto){
         this.placa = placa;
         this.modelo = modelo;

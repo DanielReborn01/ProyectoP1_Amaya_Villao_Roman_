@@ -15,10 +15,14 @@ public class Usuario {
     String contraseña;
     int numCelular;
     
-    public Usuario(){
-        
-    }
-    
+    /**
+     * Constructor de la clase Usuario
+     * @param numCedula
+     * @param apellidos
+     * @param nombres
+     * @param contraseña
+     * @param numCelular 
+     */
     public Usuario(int numCedula, String apellidos, String nombres, String contraseña, int numCelular){
         this.numCedula = numCedula;
         this.apellidos = apellidos;
@@ -67,8 +71,9 @@ public class Usuario {
         this.numCelular = numCelular;
     }
     
-    
+    /**
+     * Método que permite consultar el servicio
+     */
     public void consultarServicio(){
-        
     }
 }

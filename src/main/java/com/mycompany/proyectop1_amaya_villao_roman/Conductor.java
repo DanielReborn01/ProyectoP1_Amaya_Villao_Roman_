@@ -14,15 +14,15 @@ public class Conductor extends Usuario{
     Vehiculo vehiculo;
     
     /**
-     *
-     * @param numCedula
-     * @param apellidos
-     * @param nombres
-     * @param contraseña
-     * @param numCelular
-     * @param numLicencia
-     * @param estado
-     * @param vehiculo
+     * Constructor de la clase Conductor
+     * @param numCedula cédula del conductor
+     * @param apellidos apellidos del conductor
+     * @param nombres nombres del conductor
+     * @param contraseña contraseña del conductor
+     * @param numCelular número telefónico del conductor
+     * @param numLicencia licencia del conductor
+     * @param estado estado del conductor
+     * @param vehiculo vehículo del conductor
      */
     public Conductor(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, String numLicencia, String estado, Vehiculo vehiculo){
         super(numCedula, apellidos, nombres, contraseña, numCelular);

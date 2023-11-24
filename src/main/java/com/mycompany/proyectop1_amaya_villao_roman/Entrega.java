@@ -4,6 +4,9 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
+import Enums.TipoEntrega;
+import Enums.TipoPago;
+
 /**
  *
  * @author danie
@@ -13,7 +16,18 @@ public class Entrega extends Servicio{
     private double peso;
     private TipoPago pago;
     private TipoEntrega entrega;
-
+    
+    /**
+     * Constructor de la clase Entrega
+     * @param numProductos
+     * @param pago
+     * @param entrega
+     * @param origen
+     * @param destino
+     * @param fecha
+     * @param conductor
+     * @param valorPagar 
+     */
     public Entrega(int numProductos, TipoPago pago, TipoEntrega entrega, String origen, String destino, String fecha, Conductor conductor, double valorPagar) {
         super(origen, destino, fecha, conductor, valorPagar);
         this.numProductos = numProductos;
