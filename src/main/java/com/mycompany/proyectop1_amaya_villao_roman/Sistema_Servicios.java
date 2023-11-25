@@ -19,11 +19,19 @@ public class Sistema_Servicios {
     /**
      * Metodo que muestra el menu del usuario tipo cliente
      */
+    
+    /** Se crean los  3 métodos de la clase principal y el método main*/
+    public static void iniciarSesion(){
+        
+    }
     public static void mostrarMenuCliente() {
         System.out.println("1. Solicitar servicio de taxi\n2. Solicitar comida a domicilio\n3. Solicitar entrega encomienda\n4.Consultar servicios");
 
     }
-
+    
+    public static void validarUsuario(){
+        
+    }
     public static void main(String[] args) {
         mostrarMenuCliente();
         
