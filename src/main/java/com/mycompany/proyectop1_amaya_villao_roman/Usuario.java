@@ -4,17 +4,29 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
+import Enums.TipoUsuario;
+
 /**
  *
  * @author danie
  */
-public class Usuario {
-    int numCedula;
-    String apellidos;
-    String nombres;
-    String contraseña;
-    int numCelular;
-    
+public abstract class Usuario {
+    /**
+     * 
+     */
+    protected String apellidos, nombres, contrasena;
+    /**
+     * 
+     */
+    protected int numCedula, numCelular;
+    /**
+     * 
+     */
+    protected TipoUsuario tipoUsuario;
+    /**
+     * 
+     */
+    protected String usuario;
     /**
      * Constructor de la clase Usuario
      * @param numCedula
@@ -22,18 +34,23 @@ public class Usuario {
      * @param nombres
      * @param contraseña
      * @param numCelular 
+     * @param tipoUsuario
+     * @param usuario
      */
-    public Usuario(int numCedula, String apellidos, String nombres, String contraseña, int numCelular){
+    public Usuario(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, TipoUsuario tipoUsuario){
         this.numCedula = numCedula;
         this.apellidos = apellidos;
         this.nombres = nombres;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.numCelular = numCelular;
+        this.tipoUsuario = tipoUsuario;
+        this.usuario = usuario;
     }
 
     public int getNumCedula() {
         return numCedula;
     }
+    
 
     public void setNumCedula(int numCedula) {
         this.numCedula = numCedula;
@@ -55,12 +72,12 @@ public class Usuario {
         this.nombres = nombres;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public int getNumCelular() {
@@ -76,4 +93,27 @@ public class Usuario {
      */
     public void consultarServicio(){
     }
+    
+    /**
+     * Método que sirve para consultar los datos del vehículo
+     */
+    public void consultarDatosVehiculo(){
+    }
+    /**
+     * Método que devuelve el usuario del Usuario.
+     * 
+     * @return El usuario del Usuario
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+    /**
+     * Método set para el usuario del Usuario.
+     * 
+     * @param usuario El usuario a establecer
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
 }

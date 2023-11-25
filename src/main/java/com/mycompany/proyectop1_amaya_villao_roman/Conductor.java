@@ -4,6 +4,10 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
+import Enums.TipoUsuario;
+import java.util.ArrayList;
+import static manejoArchivos.ManejoArchivos.LeerValidando;
+
 /**
  *
  * @author danie
@@ -11,8 +15,8 @@ package com.mycompany.proyectop1_amaya_villao_roman;
 public class Conductor extends Usuario{
     String numLicencia;
     String estado;
-    Vehiculo vehiculo;
-    
+    String codigoVehiculo;
+    private final ArrayList<String[]> datosConductores = LeerValidando("conductores.txt", true); // Datos de los conductores almacenados en un archivo
     /**
      * Constructor de la clase Conductor
      * @param numCedula cédula del conductor
@@ -20,15 +24,20 @@ public class Conductor extends Usuario{
      * @param nombres nombres del conductor
      * @param contraseña contraseña del conductor
      * @param numCelular número telefónico del conductor
+     * @param tipoUsuario tipo usuario
      * @param numLicencia licencia del conductor
      * @param estado estado del conductor
      * @param vehiculo vehículo del conductor
      */
-    public Conductor(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, String numLicencia, String estado, Vehiculo vehiculo){
-        super(numCedula, apellidos, nombres, contraseña, numCelular);
-        this.numLicencia = numLicencia;
-        this.estado = estado;
-        this.vehiculo = vehiculo;
+    public Conductor(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, TipoUsuario tipoUsuario){
+        super(numCedula, apellidos, nombres, contraseña, numCelular, tipoUsuario);
+        for (String[] dato : datosConductores) {
+            if (dato[0].equals(numCedula)) {
+                this.numLicencia = dato[3];
+                this.estado = dato[1];
+                this.codigoVehiculo = dato[2];
+            }
+        }
     }
 
     public String getNumLicencia() {
@@ -47,12 +56,12 @@ public class Conductor extends Usuario{
         this.estado = estado;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
+    public String getCodigoVehiculo() {
+        return codigoVehiculo;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+    public void setCodigoVehiculo(String codigoVehiculo) {
+        this.codigoVehiculo = codigoVehiculo;
     }
     
     
