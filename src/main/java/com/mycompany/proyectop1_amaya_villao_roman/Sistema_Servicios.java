@@ -130,7 +130,7 @@ public class Sistema_Servicios {
                             switch (opc2) {
                                 case 1 -> {
                                     conductor.consultarServicio();
-                                    Sistema_Servicios.consultarServicio();
+                                    Sistema_Servicios.consultarServicio(listaServicios);
                                     break;
                                 }
                                 case 2 -> {
