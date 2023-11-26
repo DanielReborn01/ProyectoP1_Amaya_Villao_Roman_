@@ -146,8 +146,6 @@ public class Sistema_Servicios {
                             switch (opc) {
                                 case 1 -> {
                                     Scanner sc1=new Scanner(System.in);
-                                    System.out.println("Ingrese su nombre: ");
-                                    String nombre=sc1.nextLine();
                                     System.out.println("Cuantos pasajeros van a viajar: ");
                                     int pas=sc1.nextInt();
                                     System.out.println("Origen ");
@@ -156,11 +154,29 @@ public class Sistema_Servicios {
                                     String des=sc1.nextLine();
                                     System.out.println("Fecha: ");
                                     String fecha=sc1.nextLine();
-                                    
+                                    System.out.println("Hora del viaje(HH:MM): ");
+                                    String hora=sc1.nextLine();
+                                    System.out.println("Tipo de pago (TC/E): ");
+                                    String pago=sc1.nextLine();
+                                    //Conductor conductor1=(Conductor)usuario;
+                                    //Taxi tax=new Taxi(or,des,fecha,conductor1,);
+                                
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 2 -> {
-                                    cliente.solicitarComida();
+                                    Scanner sc1=new Scanner(System.in);
+                                    System.out.println("Que va a pedir: ");
+                                    int com=sc1.nextInt();
+                                    System.out.println("Origen ");
+                                    String or=sc1.nextLine();
+                                    System.out.println("Destino ");
+                                    String des=sc1.nextLine();
+                                    System.out.println("Fecha: ");
+                                    String fecha=sc1.nextLine();
+                                    System.out.println("Hora del viaje(HH:MM): ");
+                                    String hora=sc1.nextLine();
+                                    System.out.println("Tipo de pago (TC/E): ");
+                                    String pago=sc1.nextLine();
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 3 -> {
