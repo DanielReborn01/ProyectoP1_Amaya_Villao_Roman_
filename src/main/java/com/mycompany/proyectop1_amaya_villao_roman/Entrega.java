@@ -27,9 +27,10 @@ public class Entrega extends Servicio{
      * @param fecha
      * @param conductor
      * @param valorPagar 
+     * @param cliente
      */
-    public Entrega(int numProductos, TipoPago pago, TipoEntrega entrega, String origen, String destino, String fecha, Conductor conductor, double valorPagar) {
-        super(origen, destino, fecha, conductor, valorPagar);
+    public Entrega(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente,int numProductos, TipoPago pago, TipoEntrega entrega) {
+        super(origen, destino, fecha, conductor, valorPagar, cliente);
         this.numProductos = numProductos;
         this.pago = pago;
         this.entrega = entrega;
