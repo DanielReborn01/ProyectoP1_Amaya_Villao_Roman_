@@ -41,7 +41,7 @@ public abstract class Usuario {
         this.numCedula = numCedula;
         this.apellidos = apellidos;
         this.nombres = nombres;
-        this.contrasena = contrasena;
+        this.contrasena = contraseña;
         this.numCelular = numCelular;
         this.tipoUsuario = tipoUsuario;
         this.usuario = usuario;
