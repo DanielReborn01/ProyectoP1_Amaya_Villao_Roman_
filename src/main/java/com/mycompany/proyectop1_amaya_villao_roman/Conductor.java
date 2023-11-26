@@ -68,7 +68,7 @@ public class Conductor extends Usuario{
     public void consultarServicio(){ 
     }
     
-    public void consultarSevicio(ArrayList<Servicio>ListaServicioConductor){
+    public void consultarServicio(ArrayList<Servicio>ListaServicioConductor){
         for(Servicio s:ListaServicioConductor){
             if(s.getTipoentrega().equals('E')){
                 Entrega e=(Entrega)s;    
