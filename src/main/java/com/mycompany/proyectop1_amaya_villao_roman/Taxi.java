@@ -21,10 +21,11 @@ public class Taxi extends Servicio{
      * @param fecha
      * @param conductor
      * @param valorPagar
-     * @param numPersonas 
+     * @param numPersonas
+     * @param cliente
      */
-    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar, int numPersonas){
-        super(origen, destino, fecha, conductor, valorPagar);
+    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas){
+        super(origen, destino, fecha, conductor, valorPagar, cliente);
         this.numPersonas = numPersonas;
     }
     
