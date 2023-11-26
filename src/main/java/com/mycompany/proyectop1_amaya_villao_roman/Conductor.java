@@ -64,6 +64,24 @@ public class Conductor extends Usuario{
         this.codigoVehiculo = codigoVehiculo;
     }
     
+    @Override
+    public void consultarServicio(){ 
+    }
     
+    public void consultarSevicio(ArrayList<Servicio>ListaServicioConductor){
+        for(Servicio s:ListaServicioConductor){
+            if(s.getTipoentrega().equals('E')){
+                Entrega e=(Entrega)s;    
+                System.out.println("Tipo: Encomienda"+'\n'+ "Tipo Encomienda: "+e.getTipoentrega()+'\n'+"Fecha: "+e.getFecha()+'\n'+"Desde: "+e.getOrigen()+'\n'+"Hasta: "+e.getDestino());
+            }
+            else if(s.getTipoentrega().equals('T')){
+                Taxi t=(Taxi)s;
+                System.out.println("Tipo: Taxi"+'\n'+ "Tipo Taxi: "+t.getTipoentrega()+'\n'+"Fecha: "+t.getFecha()+'\n'+"Desde: "+t.getOrigen()+'\n'+"Hasta: "+t.getDestino());
+                
+            }
+        
+            
+        }
+    }    
     
 }
