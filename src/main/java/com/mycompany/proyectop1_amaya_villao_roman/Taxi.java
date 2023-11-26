@@ -28,15 +28,24 @@ public class Taxi extends Servicio{
         super(origen, destino, fecha, conductor, valorPagar, cliente);
         this.numPersonas = numPersonas;
     }
+
     
-    /**
+    public int getNumPersonas(){
+        return numPersonas;
+        
+    }
+
+    
+    public void setNumPersonas(int numPersonas) {    
+        this.numPersonas = numPersonas;
+    }
+/**
      * Método utilizado
      * al momento de pagar un servicio
      * @param valorPagar 
      */
     @Override
-    public void pagoServicio(double valorPagar){
-        
+    public void pagoServicio(double valorPagar) {
     }
     /**
      * Método utilizado al momento de pagar
@@ -47,4 +56,6 @@ public class Taxi extends Servicio{
     public void pagoServicio(double valorPagar, TipoPago formaPago){
         
     }
+    
+    
 }
