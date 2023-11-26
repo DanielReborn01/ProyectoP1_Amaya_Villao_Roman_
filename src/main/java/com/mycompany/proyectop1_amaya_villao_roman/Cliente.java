@@ -7,7 +7,7 @@ package com.mycompany.proyectop1_amaya_villao_roman;
 import Enums.TipoUsuario;
 import java.util.ArrayList;
 import static manejoArchivos.ManejoArchivos.LeerValidando;
-
+import java.util.Scanner;
 /**
  *
  * @author danie
@@ -61,7 +61,7 @@ public class Cliente extends Usuario{
         return numCedula+","+edad+","+numTarjeta;
     }
     
-    public void consultarSevicio(ArrayList<Servicio>ListaServicioCliente){
+    public void consultarServicio(ArrayList<Servicio>ListaServicioCliente){
         for(Servicio s:ListaServicioCliente){
             if(s.getTipoentrega().equals('E')){
                 Entrega e=(Entrega)s;    
@@ -76,4 +76,5 @@ public class Cliente extends Usuario{
             
         }
     }
+
 }
