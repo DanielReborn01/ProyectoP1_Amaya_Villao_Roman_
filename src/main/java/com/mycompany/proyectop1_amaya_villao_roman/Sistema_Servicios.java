@@ -31,16 +31,7 @@ public class Sistema_Servicios {
 
     }
     
-    public void consultarServicioCliente(){
-        for(Servicio ser:listaServicios){
-            System.out.println();
-        }
-    }
-    public void consultarServicioConductor(){
-        for(Servicio ser:listaServicios){
-           System.out.println();
-        }
-    }
+
 
     /**
      * Metodo que lee el archivo Usuarios y crea los objetos de los mismos para
@@ -119,7 +110,8 @@ public class Sistema_Servicios {
                     System.out.println("INGRESO EXITOSO");
 
                     //Comprobanco si el usuario es un conductor
-                    if (usuario instanceof Conductor conductor) {
+                    if (usuario instanceof Conductor ) {
+                        Conductor conductor=(Conductor)usuario;
                         Sistema_Servicios.mostrarMenuConductor();
 
                         int opc2 = 0;
@@ -129,8 +121,7 @@ public class Sistema_Servicios {
                             sc.nextLine();
                             switch (opc2) {
                                 case 1 -> {
-                                    conductor.consultarServicio();
-                                    Sistema_Servicios.consultarServicio(listaServicios);
+                                    conductor.consultarServicio(listaServicios);
                                     break;
                                 }
                                 case 2 -> {
@@ -154,7 +145,18 @@ public class Sistema_Servicios {
                             sc.nextLine();
                             switch (opc) {
                                 case 1 -> {
-                                    cliente.solicitarTaxi();
+                                    Scanner sc1=new Scanner(System.in);
+                                    System.out.println("Ingrese su nombre: ");
+                                    String nombre=sc1.nextLine();
+                                    System.out.println("Cuantos pasajeros van a viajar: ");
+                                    int pas=sc1.nextInt();
+                                    System.out.println("Origen ");
+                                    String or=sc1.nextLine();
+                                    System.out.println("Destino ");
+                                    String des=sc1.nextLine();
+                                    System.out.println("Fecha: ");
+                                    String fecha=sc1.nextLine();
+                                    
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 2 -> {
@@ -166,7 +168,7 @@ public class Sistema_Servicios {
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 4 ->{
-                                    Sistema_Servicios.consultarServicio();
+                                    cliente.consultarServicio(listaServicios);
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 default ->
