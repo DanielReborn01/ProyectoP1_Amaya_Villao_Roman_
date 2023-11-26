@@ -31,8 +31,15 @@ public class Sistema_Servicios {
 
     }
     
-    public static void consultarServicio(){
-        
+    public void consultarServicioCliente(){
+        for(Servicio ser:listaServicios){
+            System.out.println();
+        }
+    }
+    public void consultarServicioConductor(){
+        for(Servicio ser:listaServicios){
+           System.out.println();
+        }
     }
 
     /**
@@ -53,10 +60,12 @@ public class Sistema_Servicios {
                 case "R" -> {
                     listaUsuarios.add(new Conductor(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]), TipoUsuario.valueOf(dato[5])));
                     break;
+                
                 }
             }
         }
     }
+
 
     /**
      *
@@ -68,6 +77,22 @@ public class Sistema_Servicios {
         // Código para crear un pago y guardar la información en un archivo.
         ManejoArchivos.EscribirArchivo("pagos.txt", pago.toString());
     }
+    public static void crearCliente(Cliente cliente){
+        //código para crear a los clientes que ingresan por primera vez y deben colocar sus datos
+        ManejoArchivos.EscribirArchivo("clientes.txt", cliente.toString());
+
+    }
+    
+    public static void crearServicios(){
+        int id=0;
+        for(Servicio ser:listaServicios){
+            ManejoArchivos.EscribirArchivo("servicios.txt", id+","+ser.getTipoentrega()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
+            id=id+1;
+        }
+        
+        
+
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -77,7 +102,7 @@ public class Sistema_Servicios {
         String sesion = "n";
 
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("BIENVENIDO AL SISTEMA");
+        System.out.println("         BIENVENIDO AL SISTEMA          ");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
 
         //Inicio de sesión
