@@ -12,20 +12,45 @@ public class Vehiculo {
     String placa;
     String modelo;
     String marca;
-    boolean esUnAuto;
+    int codigoVehiculo;
+    char tipoVehiculo;
     
     /**
      * Constructor de la clase Vehiculo
+     * @param codigoVehiculo
      * @param placa
      * @param modelo
      * @param marca
-     * @param esUnAuto 
+     * @param tipoVehiculo
      */
-    public Vehiculo(String placa, String  modelo, String marca, boolean esUnAuto){
+    public Vehiculo(int codigoVehiculo,String placa, String  modelo, String marca, char tipoVehiculo){
+        this.codigoVehiculo=codigoVehiculo;
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
-        this.esUnAuto = esUnAuto;
+        this.tipoVehiculo=tipoVehiculo;
+        
     }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getCodigoVehiculo() {
+        return codigoVehiculo;
+    }
+
+    public char getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+    
     
 }
