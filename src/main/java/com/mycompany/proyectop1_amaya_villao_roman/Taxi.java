@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Taxi extends Servicio{
     int numPersonas;
+    String hora_de_partida;
     
     /**
      * Constructor de la clase Taxi
@@ -23,10 +24,12 @@ public class Taxi extends Servicio{
      * @param valorPagar
      * @param numPersonas
      * @param cliente
+     * @param hora_de_partida
      */
-    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas){
+    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida){
         super(origen, destino, fecha, conductor, valorPagar, cliente);
         this.numPersonas = numPersonas;
+        this.hora_de_partida=hora_de_partida;
     }
 
     
@@ -39,11 +42,18 @@ public class Taxi extends Servicio{
     public void setNumPersonas(int numPersonas) {    
         this.numPersonas = numPersonas;
     }
+    
+    public String getHora_de_partida() {
+        return hora_de_partida;
+    }    
 /**
      * Método utilizado
      * al momento de pagar un servicio
      * @param valorPagar 
      */
+    
+
+
     @Override
     public void pagoServicio(double valorPagar) {
     }
