@@ -55,4 +55,7 @@ public class Cliente extends Usuario{
         this.numTarjeta = numTarjeta;
     }
     
+    public String toString(){
+        return numCedula+","+edad+","+numTarjeta;
+    }
 }
