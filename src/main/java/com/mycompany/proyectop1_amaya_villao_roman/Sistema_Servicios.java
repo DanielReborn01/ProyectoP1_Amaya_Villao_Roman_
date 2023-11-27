@@ -38,7 +38,7 @@ public class Sistema_Servicios {
     public static void cargarVehiculo(){
         ArrayList<String[]> datosVehiculo = LeerValidando("vehiculos.txt", true);
         for (String[] dato : datosVehiculo){
-            listaVehiculos.add(new Vehiculo(Integer.parseInt(dato[0]),dato[1],dato[2],dato[3],dato[4]));
+            listaVehiculos.add(new Vehiculo(dato[0],dato[1],dato[2],dato[3],dato[4]));
         }
     }
     /**
