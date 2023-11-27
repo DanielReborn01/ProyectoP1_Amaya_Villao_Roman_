@@ -13,7 +13,7 @@ public class Vehiculo {
     String modelo;
     String marca;
     int codigoVehiculo;
-    char tipoVehiculo;
+    String tipoVehiculo;
     
     /**
      * Constructor de la clase Vehiculo
@@ -23,7 +23,7 @@ public class Vehiculo {
      * @param marca
      * @param tipoVehiculo
      */
-    public Vehiculo(int codigoVehiculo,String placa, String  modelo, String marca, char tipoVehiculo){
+    public Vehiculo(int codigoVehiculo,String modelo, String  marca, String placa, String tipoVehiculo){
         this.codigoVehiculo=codigoVehiculo;
         this.placa = placa;
         this.modelo = modelo;
@@ -48,7 +48,7 @@ public class Vehiculo {
         return codigoVehiculo;
     }
 
-    public char getTipoVehiculo() {
+    public String getTipoVehiculo() {
         return tipoVehiculo;
     }
     
