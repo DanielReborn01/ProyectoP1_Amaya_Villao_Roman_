@@ -9,5 +9,5 @@ package Enums;
  * @author GabrielVillao
  */
 public enum Disponibilidad {
-    DISPONIBILIDAD,OCUPADO
+    D,O
 }
