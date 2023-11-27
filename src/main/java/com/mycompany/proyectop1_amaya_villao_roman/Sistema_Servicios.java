@@ -4,11 +4,14 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
+import Enums.TipoEntrega;
+import Enums.TipoPago;
 import Enums.TipoUsuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 import manejoArchivos.ManejoArchivos;
 import static manejoArchivos.ManejoArchivos.LeerValidando;
+import static manejoArchivos.ManejoArchivos.escribirArchivo;
 
 /**
  *
@@ -66,18 +69,18 @@ public class Sistema_Servicios {
      */
     public static void createPago(Pago pago) {
         // Código para crear un pago y guardar la información en un archivo.
-        ManejoArchivos.EscribirArchivo("pagos.txt", pago.toString());
+        ManejoArchivos.escribirArchivo("pagos.txt", pago.toString());
     }
     public static void crearCliente(Cliente cliente){
         //código para crear a los clientes que ingresan por primera vez y deben colocar sus datos
-        ManejoArchivos.EscribirArchivo("clientes.txt", cliente.toString());
+        ManejoArchivos.escribirArchivo("clientes.txt", cliente.toString());
 
     }
     
     public static void crearServicios(){
         int id=0;
         for(Servicio ser:listaServicios){
-            ManejoArchivos.EscribirArchivo("servicios.txt", id+","+ser.getTipoentrega()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
+            ManejoArchivos.escribirArchivo("servicios.txt", id+","+ser.getTipoentrega()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
             id=id+1;
         }
         
@@ -160,7 +163,7 @@ public class Sistema_Servicios {
                                     String pago=sc1.nextLine();
                                     //Conductor conductor1=(Conductor)usuario;
                                     //Taxi tax=new Taxi(or,des,fecha,conductor1,);
-                                
+                                    
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 2 -> {
@@ -176,11 +179,22 @@ public class Sistema_Servicios {
                                     System.out.println("Hora del viaje(HH:MM): ");
                                     String hora=sc1.nextLine();
                                     System.out.println("Tipo de pago (TC/E): ");
-                                    String pago=sc1.nextLine();
+                                    TipoPago tipoPago= TipoPago.valueOf(sc1.nextLine());
+                                    
                                     Sistema_Servicios.mostrarMenuCliente();
+                                    
                                 }
                                 case 3 -> {
-                                    cliente.solicitarEntrega();
+                                    int i = 0;
+                                    System.out.println("Qué tipo de encomienda desea hacer?");
+                                    TipoEntrega tipoEncomienda = TipoEntrega.valueOf(sc.nextLine());
+                                    System.out.println("Ingrese cuántos productos va a pedir");
+                                    String cantidad = sc.nextLine();
+                                    System.out.println("Ingrese el peso de todo");
+                                    String peso = sc.nextLine();
+                                    String subtotal = "5.0";
+                                    String linea = i++ +","+tipoEncomienda+","+cantidad+","+peso+","+subtotal;
+                                    escribirArchivo("encomiendas.txt", linea);
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 4 ->{

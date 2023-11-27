@@ -62,7 +62,7 @@ public class ManejoArchivos {
      * @param nombreArchivo el nombre del archivo a Escribir
      * @param linea La linea que se desea escribir
      */
-    public static void EscribirArchivo(String nombreArchivo, String linea) {
+    public static void escribirArchivo(String nombreArchivo, String linea) {
 
         FileWriter fichero = null;
         BufferedWriter bw = null;
