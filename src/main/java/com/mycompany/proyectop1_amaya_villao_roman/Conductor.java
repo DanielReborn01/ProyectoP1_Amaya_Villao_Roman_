@@ -83,6 +83,17 @@ public class Conductor extends Usuario{
             
         }
     }
+    
+    public void consultarDatosVehiculo(ArrayList<Vehiculo>Listavehiculo){
+            for(Vehiculo v:Listavehiculo){
+                if(v.getCodigoVehiculo().equals(codigoVehiculo)){    
+                    System.out.println(v.getCodigoVehiculo()+" "+v.getMarca()+" "+v.getModelo()+" "+v.getPlaca()+" "+v.getTipoVehiculo());
+
+                }    
+            }
+            
+        }
+}
     //public void 
     
-}
+
