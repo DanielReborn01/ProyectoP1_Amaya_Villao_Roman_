@@ -4,21 +4,21 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 import Enums.TipoPago;
+import java.util.Random;
 /**
  *
  * @author GabrielVillao
  */
 public class Pago {
-    private int id_pago;
+    private int id_pago=1110;
     private TipoPago Tipopago;
     private double subtotal;
-    private double costoServicio;
-
-    public Pago(int id_pago, TipoPago Tipopago, double subtotal, double costoServicio) {
-        this.id_pago = id_pago;
+    Random random=new Random();
+    public Pago(TipoPago Tipopago) {
+        this.id_pago = id_pago++;
         this.Tipopago = Tipopago;
-        this.subtotal = subtotal;
-        this.costoServicio = costoServicio;
+        this.subtotal = (random.nextInt(41) + 5)*0.5;
+
     }
 
     public int getId_pago() {
@@ -45,22 +45,19 @@ public class Pago {
         this.subtotal = subtotal;
     }
 
-    public double getcostoServicio() {
-        return costoServicio;
-    }
 
-    public void setcostoServicio(double costoServicio) {
-        this.costoServicio = costoServicio;
-    }
+
     
     public double valorRuta(TipoPago tipopago){
         if(tipopago.equals(tipopago.TC)){
-            return (costoServicio*0.15)+costoServicio;
+            return (subtotal*0.15)+subtotal;
         }else{
-            return costoServicio;
+            return subtotal;
         }
         
     }
+    
+
     
     
 }
