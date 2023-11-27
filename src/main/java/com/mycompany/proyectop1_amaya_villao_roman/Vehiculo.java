@@ -12,7 +12,7 @@ public class Vehiculo {
     String placa;
     String modelo;
     String marca;
-    int codigoVehiculo;
+    String codigoVehiculo;
     String tipoVehiculo;
     
     /**
@@ -23,7 +23,7 @@ public class Vehiculo {
      * @param marca
      * @param tipoVehiculo
      */
-    public Vehiculo(int codigoVehiculo,String modelo, String  marca, String placa, String tipoVehiculo){
+    public Vehiculo(String codigoVehiculo,String modelo, String  marca, String placa, String tipoVehiculo){
         this.codigoVehiculo=codigoVehiculo;
         this.placa = placa;
         this.modelo = modelo;
@@ -44,7 +44,7 @@ public class Vehiculo {
         return marca;
     }
 
-    public int getCodigoVehiculo() {
+    public String getCodigoVehiculo() {
         return codigoVehiculo;
     }
 
