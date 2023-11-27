@@ -31,7 +31,7 @@ public class Conductor extends Usuario{
      */
     //constructor
     public Conductor(int numCedula,String apellidos, String nombres, String contraseña, int numCelular, TipoUsuario tipoUsuario){
-        super(numCedula, apellidos, nombres, contraseña, numCelular, tipoUsuario);
+        super(numCedula ,apellidos, nombres, contraseña, numCelular, tipoUsuario);
         for (String[] dato : datosConductores) {
             if (dato[0].equals(numCedula)) {
                 this.numLicencia = dato[3];
