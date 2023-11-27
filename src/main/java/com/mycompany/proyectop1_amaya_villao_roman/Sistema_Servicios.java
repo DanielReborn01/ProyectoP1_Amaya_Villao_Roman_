@@ -165,11 +165,11 @@ public class Sistema_Servicios {
                             switch (opc) {
                                 case 1 -> {
                                     Scanner sc1=new Scanner(System.in);
-                                    System.out.println("Cuantos pasajeros van a viajar: ");
+                                    System.out.println("Cuantos pasajeros van a viajar : ");
                                     int pas=sc1.nextInt();
-                                    System.out.println("Origen ");
+                                    System.out.println("Origen:");
                                     String or=sc1.nextLine();
-                                    System.out.println("Destino ");
+                                    System.out.println("Destino:");
                                     String des=sc1.nextLine();
                                     System.out.println("Fecha: ");
                                     String fecha=sc1.nextLine();
