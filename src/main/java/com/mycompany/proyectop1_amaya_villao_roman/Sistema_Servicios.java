@@ -35,7 +35,12 @@ public class Sistema_Servicios {
     }
     
 
-
+    public static void cargarVehiculo(){
+        ArrayList<String[]> datosVehiculo = LeerValidando("vehiculos.txt", true);
+        for (String[] dato : datosVehiculo){
+            listaVehiculos.add(new Vehiculo(Integer.parseInt(dato[0]),dato[1],dato[2],dato[3],dato[4]));
+        }
+    }
     /**
      * Metodo que lee el archivo Usuarios y crea los objetos de los mismos para
      * agregarlos a la lista de Usuarios
@@ -77,7 +82,18 @@ public class Sistema_Servicios {
 
     }
     
-    public static void crearServicios(){
+    public void buscarConductores(){
+        
+        ArrayList<String[]> datosConductor = LeerValidando("conductores.txt", true);
+        
+        for(String[] conductor:datosConductor){
+            if(conductor[1].equals("D")){
+               
+            }
+        }
+    }
+    
+    public void crearServicios(){
         int id=0;
         for(Servicio ser:listaServicios){
             ManejoArchivos.escribirArchivo("servicios.txt", id+","+ser.getTipoentrega()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
