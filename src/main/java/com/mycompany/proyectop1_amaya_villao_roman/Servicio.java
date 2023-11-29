@@ -6,6 +6,7 @@ package com.mycompany.proyectop1_amaya_villao_roman;
 
 import java.util.ArrayList;
 import Enums.TipoEntrega;
+import java.time.*;
 /**
  *
  * @author danie
@@ -13,11 +14,14 @@ import Enums.TipoEntrega;
 public class Servicio {
     private String origen;
     private String destino;
-    private String fecha;
+    private LocalDate fecha;
+    private LocalTime tiempo;
     private Conductor conductor;
     double ValorPagar;
     private TipoEntrega tipoentrega;
     private Cliente cliente;
+    
+    private int id;
     
     /**
      * Constructor de la clase Servicio
@@ -28,13 +32,16 @@ public class Servicio {
      * @param valorPagar
      * @param cliente
      */
-    public Servicio(String origen,String destino, String fecha, Conductor conductor, double valorPagar, Cliente cliente){
+    public Servicio(String origen,String destino, LocalDate fecha,LocalTime tiempo, Conductor conductor, double valorPagar, Cliente cliente){
         this.origen=origen;
         this.destino=destino;
         this.fecha = fecha;
+        this.tiempo=tiempo;
         this.conductor = conductor;
         this.ValorPagar = valorPagar;
         this.cliente=cliente;
+        this.id=2000;
+        id=id+1;
     }
     
     
@@ -64,13 +71,18 @@ public class Servicio {
         this.destino = destino;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+
+    public LocalTime getTiempo() {
+        return tiempo;
+    }
+    
 
     public Conductor getConductor() {
         return conductor;
@@ -94,6 +106,10 @@ public class Servicio {
 
     public Cliente getCliente() {
         return cliente;
+    }
+    
+    public String toString(){
+        return id+"/"+tipoentrega+"/"+cliente.getNumCedula()+"/"+conductor.getNombres()+"/"+origen+"/"+destino+"/"+fecha+"/"+tiempo;
     }
     
     
