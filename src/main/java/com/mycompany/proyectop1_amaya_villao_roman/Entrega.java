@@ -6,6 +6,7 @@ package com.mycompany.proyectop1_amaya_villao_roman;
 
 import Enums.TipoEntrega;
 import Enums.TipoPago;
+import java.time.*;
 
 /**
  *
@@ -15,7 +16,6 @@ public class Entrega extends Servicio{
     private int numProductos;
     private double peso;
     private TipoPago pago;
-    private TipoEntrega entrega;
     
     /**
      * Constructor de la clase Entrega
@@ -25,15 +25,16 @@ public class Entrega extends Servicio{
      * @param origen
      * @param destino
      * @param fecha
+     * @param tiempo
      * @param conductor
      * @param valorPagar 
      * @param cliente
      */
-    public Entrega(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente,int numProductos, TipoPago pago, TipoEntrega entrega) {
-        super(origen, destino, fecha, conductor, valorPagar, cliente);
+    public Entrega(String origen, String destino, LocalDate fecha, LocalTime tiempo, Conductor conductor, double valorPagar,Cliente cliente,int numProductos, TipoPago pago, TipoEntrega entrega) {
+        super(origen, destino, fecha, tiempo, conductor, valorPagar, cliente);
         this.numProductos = numProductos;
         this.pago = pago;
-        this.entrega = entrega;
     }
+    
     
 }
