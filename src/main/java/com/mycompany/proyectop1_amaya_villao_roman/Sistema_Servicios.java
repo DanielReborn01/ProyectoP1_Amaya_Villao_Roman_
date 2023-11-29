@@ -25,7 +25,7 @@ public class Sistema_Servicios {
 
 
     public static void mostrarMenuCliente() {
-        System.out.println("1. Solicitar servicio de taxi\n2. Solicitar comida a domicilio\n3. Solicitar entrega encomienda\n4.Consultar servicios");
+        System.out.println("1. Solicitar servicio de taxi\n2. Solicitar entrega encomienda\n3.Consultar servicios");
 
     }
 
@@ -144,7 +144,7 @@ public class Sistema_Servicios {
                                     break;
                                 }
                                 case 2 -> {
-                                    conductor.consultarDatosVehiculo();
+                                    conductor.consultarDatosVehiculo(listaVehiculos);
                                 }
 
                                 default ->
