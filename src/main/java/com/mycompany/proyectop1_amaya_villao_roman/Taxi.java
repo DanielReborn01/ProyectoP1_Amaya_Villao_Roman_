@@ -5,6 +5,7 @@
 package com.mycompany.proyectop1_amaya_villao_roman;
 
 import Enums.TipoPago;
+import java.time.*;
 
 /**
  *
@@ -19,14 +20,16 @@ public class Taxi extends Servicio{
      * @param origen
      * @param destino
      * @param fecha
+     * @param tiempo
      * @param conductor
      * @param valorPagar
      * @param numPersonas
      * @param cliente
      * @param hora_de_partida
+     * 
      */
-    public Taxi(String origen, String destino, String fecha, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida){
-        super(origen, destino, fecha, conductor, valorPagar, cliente);
+    public Taxi(String origen, String destino, LocalDate fecha, LocalTime tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida){
+        super(origen, destino, fecha, tiempo, conductor, valorPagar, cliente);
         this.numPersonas = numPersonas;
         this.hora_de_partida=hora_de_partida;
     }
