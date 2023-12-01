@@ -12,7 +12,8 @@ import java.util.Scanner;
 import manejoArchivos.ManejoArchivos;
 import static manejoArchivos.ManejoArchivos.LeerValidando;
 import static manejoArchivos.ManejoArchivos.escribirArchivo;
-
+import java.util.Date;
+import java.time.*;
 /**
  *
  * @author danie
@@ -82,12 +83,13 @@ public class Sistema_Servicios {
 
     }
     
-    public void buscarConductores(){
+    public static void buscarConductores(){
         
         ArrayList<String[]> datosConductor = LeerValidando("conductores.txt", true);
         
         for(String[] conductor:datosConductor){
             if(conductor[1].equals("D")){
+                System.out.println(conductor[0]+" "+conductor[1]+" "+conductor[2]+" "+conductor[3]);
                
             }
         }
@@ -165,6 +167,10 @@ public class Sistema_Servicios {
                             switch (opc) {
                                 case 1 -> {
                                     Scanner sc1=new Scanner(System.in);
+                                    System.out.println("Conductores disponibles");
+                                    Sistema_Servicios.buscarConductores();
+                                    System.out.println(" Escoger conductor");
+                                    
                                     System.out.println("Cuantos pasajeros van a viajar : ");
                                     int pas=sc1.nextInt();
                                     System.out.println("Origen:");
@@ -177,6 +183,9 @@ public class Sistema_Servicios {
                                     String hora=sc1.nextLine();
                                     System.out.println("Tipo de pago (TC/E): ");
                                     String pago=sc1.nextLine();
+                                    LocalDate D1=LocalDate.now();
+                                    LocalTime tiempo=LocalTime.now();
+                                    //Taxi t1=new Taxi(or, des, D1, tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida)
                                     //Conductor conductor1=(Conductor)usuario;
                                     //Taxi tax=new Taxi(or,des,fecha,conductor1,);
                                     
