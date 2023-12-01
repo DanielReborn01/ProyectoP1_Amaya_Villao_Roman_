@@ -28,6 +28,7 @@ public class Servicio {
      * @param origen
      * @param destino
      * @param fecha
+     * @param tiempo
      * @param conductor
      * @param valorPagar
      * @param cliente
@@ -112,6 +113,9 @@ public class Servicio {
         return id+"/"+tipoentrega+"/"+cliente.getNumCedula()+"/"+conductor.getNombres()+"/"+origen+"/"+destino+"/"+fecha+"/"+tiempo;
     }
     
+    public double valorRuta(){
+        return ValorPagar;
+    }
     
     
 }
