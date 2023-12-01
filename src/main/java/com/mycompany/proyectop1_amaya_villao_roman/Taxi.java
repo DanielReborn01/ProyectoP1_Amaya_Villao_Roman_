@@ -48,26 +48,9 @@ public class Taxi extends Servicio{
     public String getHora_de_partida() {
         return hora_de_partida;
     }    
-/**
-     * Método utilizado
-     * al momento de pagar un servicio
-     * @param valorPagar 
-     */
     
 
 
-    @Override
-    public void pagoServicio(double valorPagar) {
-    }
-    /**
-     * Método utilizado al momento de pagar
-     * un servicio
-     * @param valorPagar
-     * @param formaPago 
-     */
-    public void pagoServicio(double valorPagar, TipoPago formaPago){
-        
-    }
     
     
 }
