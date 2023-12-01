@@ -17,7 +17,7 @@ public class Pago {
     public Pago(TipoPago Tipopago) {
         this.id_pago = id_pago++;
         this.Tipopago = Tipopago;
-        this.subtotal = (random.nextInt(41) + 5)*0.5;
+        this.subtotal = (random.nextInt(41) + 5);
 
     }
 
@@ -50,9 +50,9 @@ public class Pago {
     
     public double valorRuta(TipoPago tipopago){
         if(tipopago.equals(tipopago.TC)){
-            return (subtotal*0.15)+subtotal;
+            return ((subtotal*0.5)*0.10)+(subtotal*0.5);
         }else{
-            return subtotal;
+            return subtotal*0.5;
         }
         
     }
