@@ -36,5 +36,10 @@ public class Entrega extends Servicio{
         this.pago = pago;
     }
     
+    @Override
+    public String toString(){
+        return id+"/"+tipoentrega+"/"+cliente.getNumCedula()+"/"+conductor.getNombres()+"/"+origen+"/"+destino+"/"+fecha+"/"+tiempo;
+
+    }
     
 }
