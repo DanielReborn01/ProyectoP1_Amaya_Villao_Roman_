@@ -40,7 +40,7 @@ public class Conductor extends Usuario{
             }
         }
     }
-
+    
     public String getNumLicencia() {
         return numLicencia;
     }
