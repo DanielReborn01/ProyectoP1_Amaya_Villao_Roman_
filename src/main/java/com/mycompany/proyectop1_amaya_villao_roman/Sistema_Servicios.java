@@ -23,6 +23,7 @@ public class Sistema_Servicios {
     static ArrayList<Usuario> listaUsuarios;
     static ArrayList<Vehiculo> listaVehiculos;
     static ArrayList<Servicio> listaServicios;
+    
 
 
     public static void mostrarMenuCliente() {
@@ -73,27 +74,45 @@ public class Sistema_Servicios {
      *
      * @param pago El pago que se realizo
      */
-    public static void createPago(Pago pago) {
+    /*public static void createPago(Pago pago) {
         // Código para crear un pago y guardar la información en un archivo.
         ManejoArchivos.escribirArchivo("pagos.txt", pago.toString());
-    }
+    }*/
     public static void crearCliente(Cliente cliente){
         //código para crear a los clientes que ingresan por primera vez y deben colocar sus datos
         ManejoArchivos.escribirArchivo("clientes.txt", cliente.toString());
 
     }
     
-    public static void buscarConductores(){
-        
+
+    public static Conductor buscarConductores(){
         ArrayList<String[]> datosConductor = LeerValidando("conductores.txt", true);
-        
         for(String[] conductor:datosConductor){
             if(conductor[1].equals("D")){
-                System.out.println(conductor[0]+" "+conductor[1]+" "+conductor[2]+" "+conductor[3]);
-               
+                System.out.println(datosConductor.indexOf(conductor[0])+". "+conductor[0]+" "+conductor[1]+" "+conductor[2]+" "+conductor[3]);
+                
             }
         }
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Elija una Opción");
+        int opcion=sc.nextInt();
+        System.out.println("Usted ha elegido la opción: "+opcion);
+        String[] cond=datosConductor.get(opcion);
+        int cedulaConductor=Integer.parseInt(cond[0]);
+        for(Usuario listaU:listaUsuarios){
+            if(listaU instanceof Conductor){
+                if(listaU.getNumCedula()==cedulaConductor){
+                    System.out.println(listaU.getNumCedula()+listaU.getNumCelular());
+                    return new Conductor(cedulaConductor,listaU.getApellidos(),listaU.getNombres(),listaU.getContrasena(),listaU.getNumCelular(),listaU.getTipoUsuario());
+                }
+            }
+            
+        }
+        return null;   
     }
+        
+    
+    
     
     public void crearServicios(){
         int id=0;
@@ -147,6 +166,7 @@ public class Sistema_Servicios {
                                 }
                                 case 2 -> {
                                     conductor.consultarDatosVehiculo(listaVehiculos);
+                                    break;
                                 }
 
                                 default ->
@@ -167,49 +187,35 @@ public class Sistema_Servicios {
                             switch (opc) {
                                 case 1 -> {
                                     Scanner sc1=new Scanner(System.in);
-                                    System.out.println("Conductores disponibles");
-                                    Sistema_Servicios.buscarConductores();
-                                    System.out.println(" Escoger conductor");
-                                    
+
+
+                                    //if(usuario.getNumCedula().equals())
                                     System.out.println("Cuantos pasajeros van a viajar : ");
                                     int pas=sc1.nextInt();
                                     System.out.println("Origen:");
                                     String or=sc1.nextLine();
                                     System.out.println("Destino:");
                                     String des=sc1.nextLine();
-                                    System.out.println("Fecha: ");
-                                    String fecha=sc1.nextLine();
-                                    System.out.println("Hora del viaje(HH:MM): ");
-                                    String hora=sc1.nextLine();
                                     System.out.println("Tipo de pago (TC/E): ");
                                     String pago=sc1.nextLine();
+                                    Pago pago1=new Pago();
+                                    double paga=pago1.viajes(pago);
+                                    System.out.println("Conductores disponibles");
+                                    Sistema_Servicios.buscarConductores();
                                     LocalDate D1=LocalDate.now();
                                     LocalTime tiempo=LocalTime.now();
-                                    //Taxi t1=new Taxi(or, des, D1, tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida)
+                                    Conductor cond=buscarConductores();
+                                    
+                                    Taxi t1=new Taxi(or, des, D1, tiempo, cond, paga,cliente, pas);
                                     //Conductor conductor1=(Conductor)usuario;
                                     //Taxi tax=new Taxi(or,des,fecha,conductor1,);
-                                    
+                                    Conductor c1=new Conductor(usuario.getNumCedula(),usuario.getApellidos(), usuario.getNombres(), usuario.getContrasena(), usuario.getNumCelular(), usuario.getTipoUsuario());
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
+
+                                    
+                                
                                 case 2 -> {
-                                    Scanner sc1=new Scanner(System.in);
-                                    System.out.println("Que va a pedir: ");
-                                    int com=sc1.nextInt();
-                                    System.out.println("Origen ");
-                                    String or=sc1.nextLine();
-                                    System.out.println("Destino ");
-                                    String des=sc1.nextLine();
-                                    System.out.println("Fecha: ");
-                                    String fecha=sc1.nextLine();
-                                    System.out.println("Hora del viaje(HH:MM): ");
-                                    String hora=sc1.nextLine();
-                                    System.out.println("Tipo de pago (TC/E): ");
-                                    TipoPago tipoPago= TipoPago.valueOf(sc1.nextLine());
-                                    
-                                    Sistema_Servicios.mostrarMenuCliente();
-                                    
-                                }
-                                case 3 -> {
                                     int i = 0;
                                     System.out.println("Qué tipo de encomienda desea hacer?");
                                     TipoEntrega tipoEncomienda = TipoEntrega.valueOf(sc.nextLine());
@@ -222,7 +228,7 @@ public class Sistema_Servicios {
                                     escribirArchivo("encomiendas.txt", linea);
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
-                                case 4 ->{
+                                case 3 ->{
                                     cliente.consultarServicio(listaServicios);
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
