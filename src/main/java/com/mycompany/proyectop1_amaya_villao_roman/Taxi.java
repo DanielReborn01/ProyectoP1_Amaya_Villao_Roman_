@@ -13,7 +13,6 @@ import java.time.*;
  */
 public class Taxi extends Servicio{
     int numPersonas;
-    String hora_de_partida;
     
     /**
      * Constructor de la clase Taxi
@@ -28,10 +27,9 @@ public class Taxi extends Servicio{
      * @param hora_de_partida
      * 
      */
-    public Taxi(String origen, String destino, LocalDate fecha, LocalTime tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas, String hora_de_partida){
+    public Taxi(String origen, String destino, LocalDate fecha, LocalTime tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas){
         super(origen, destino, fecha, tiempo, conductor, valorPagar, cliente);
         this.numPersonas = numPersonas;
-        this.hora_de_partida=hora_de_partida;
     }
 
     
@@ -45,11 +43,13 @@ public class Taxi extends Servicio{
         this.numPersonas = numPersonas;
     }
     
-    public String getHora_de_partida() {
-        return hora_de_partida;
-    }    
-    
 
+        
+    @Override
+    public String toString(){
+        return id+","+tipoentrega+","+cliente.getNumCedula()+","+conductor.getNombres()+","+origen+","+destino+","+fecha+","+tiempo;
+
+    }
 
     
     
