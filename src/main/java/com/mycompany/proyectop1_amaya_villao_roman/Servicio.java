@@ -12,16 +12,16 @@ import java.time.*;
  * @author danie
  */
 public class Servicio {
-    private String origen;
-    private String destino;
-    private LocalDate fecha;
-    private LocalTime tiempo;
-    private Conductor conductor;
+    protected String origen;
+    protected String destino;
+    protected LocalDate fecha;
+    protected LocalTime tiempo;
+    protected Conductor conductor;
     double ValorPagar;
-    private TipoEntrega tipoentrega;
-    private Cliente cliente;
+    protected TipoEntrega tipoentrega;
+    protected Cliente cliente;
     
-    private int id;
+    protected int id;
     
     /**
      * Constructor de la clase Servicio
