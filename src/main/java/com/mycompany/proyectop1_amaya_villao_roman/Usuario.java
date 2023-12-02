@@ -87,6 +87,10 @@ public abstract class Usuario {
     public void setNumCelular(int numCelular) {
         this.numCelular = numCelular;
     }
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
     
     /**
      * Método que permite consultar el servicio
