@@ -11,12 +11,10 @@ import java.util.Random;
  */
 public class Pago {
     private int id_pago=1110;
-    private TipoPago Tipopago;
     private double subtotal;
     Random random=new Random();
-    public Pago(TipoPago Tipopago) {
+    public Pago() {
         this.id_pago = id_pago++;
-        this.Tipopago = Tipopago;
         this.subtotal = (random.nextInt(41) + 5);
 
     }
@@ -27,14 +25,6 @@ public class Pago {
 
     public void setId_pago(int id_pago) {
         this.id_pago = id_pago;
-    }
-
-    public TipoPago getTipopago() {
-        return Tipopago;
-    }
-
-    public void setTipopago(TipoPago Tipopago) {
-        this.Tipopago = Tipopago;
     }
 
     public double getSubtotal() {
@@ -48,16 +38,17 @@ public class Pago {
 
 
     
-    public double valorRuta(TipoPago tipopago){
-        if(tipopago.equals(tipopago.TC)){
+    public double viajes(String tipopago){
+        if(tipopago.equals("TC")){
             return ((subtotal*0.5)*0.10)+(subtotal*0.5);
+
+
+           
         }else{
             return subtotal*0.5;
         }
         
-    }
-    
 
-    
-    
+        
+    }
 }
