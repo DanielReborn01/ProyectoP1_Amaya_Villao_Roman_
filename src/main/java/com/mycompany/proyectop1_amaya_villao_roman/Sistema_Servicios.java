@@ -57,6 +57,23 @@ public class Sistema_Servicios {
         for (String[] dato : datosUsuarios) {
             switch (dato[6]) {
                 case "C" -> {
+                    listaUsuarios.add(new Cliente(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]),(dato[5]),0,0));
+
+                    break;
+                }
+                case "R" -> {
+                    listaUsuarios.add(new Conductor(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]),dato[5],null,null ));
+                    break;
+                
+                }
+            }
+        }
+    }
+
+        /*
+        for (String[] dato : datosUsuarios) {
+            switch (dato[6]) {
+                case "C" -> {
                     listaUsuarios.add(new Cliente(Integer.parseInt(dato[0]),dato[2],dato[1],dato[4],Integer.parseInt(dato[5]),dato[3],0,0));
                     break;
                 }
@@ -83,6 +100,7 @@ public class Sistema_Servicios {
                 }
             }
         }
+        */
     }
 
     public static Conductor buscarConductores(){
