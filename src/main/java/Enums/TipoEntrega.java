@@ -9,5 +9,5 @@ package Enums;
  * @author danie
  */
 public enum TipoEntrega {
-    T, E
+    MEDICAMENTOS, DOCUMENTOS, ROPA
 }

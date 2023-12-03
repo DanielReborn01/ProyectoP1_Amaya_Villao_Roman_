@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
+import Enums.TipoVehiculo;
+
 /**
  *
  * @author danie
@@ -12,24 +14,24 @@ public class Vehiculo {
     String placa;
     String modelo;
     String marca;
-    String codigoVehiculo;
-    String tipoVehiculo;
+    int codigoVehiculo;
+    TipoVehiculo tipovehiculo;
+    
     
     /**
      * Constructor de la clase Vehiculo
-     * @param codigoVehiculo
      * @param placa
      * @param modelo
      * @param marca
-     * @param tipoVehiculo
+     * @param codigoVehiculo
+     * @param tipovehiculo
      */
-    public Vehiculo(String codigoVehiculo,String modelo, String  marca, String placa, String tipoVehiculo){
-        this.codigoVehiculo=codigoVehiculo;
+    public Vehiculo(String placa, String  modelo, String marca, int codigoVehiculo, TipoVehiculo tipovehiculo){
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
-        this.tipoVehiculo=tipoVehiculo;
-        
+        this.codigoVehiculo=codigoVehiculo;
+        this.tipovehiculo=tipovehiculo;
     }
 
     public String getPlaca() {
@@ -44,13 +46,15 @@ public class Vehiculo {
         return marca;
     }
 
-    public String getCodigoVehiculo() {
+    public int getCodigoVehiculo() {
         return codigoVehiculo;
     }
 
-    public String getTipoVehiculo() {
-        return tipoVehiculo;
+    public TipoVehiculo getTipovehiculo() {
+        return tipovehiculo;
     }
+    
+    
     
     
 }

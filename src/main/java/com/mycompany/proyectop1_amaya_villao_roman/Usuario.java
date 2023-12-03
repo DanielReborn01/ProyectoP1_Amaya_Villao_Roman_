@@ -4,29 +4,18 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
-import Enums.TipoUsuario;
-
 /**
  *
  * @author danie
  */
 public abstract class Usuario {
-    /**
-     * 
-     */
-    protected String apellidos, nombres, contrasena;
-    /**
-     * 
-     */
-    protected int numCedula, numCelular;
-    /**
-     * 
-     */
-    protected TipoUsuario tipoUsuario;
-    /**
-     * 
-     */
-    protected String usuario;
+    int numCedula;
+    String apellidos;
+    String nombres;
+    String contraseña;
+    int numCelular;
+    String usuario;
+    
     /**
      * Constructor de la clase Usuario
      * @param numCedula
@@ -34,23 +23,20 @@ public abstract class Usuario {
      * @param nombres
      * @param contraseña
      * @param numCelular 
-     * @param tipoUsuario
      * @param usuario
      */
-    public Usuario(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, TipoUsuario tipoUsuario){
+    public Usuario(int numCedula, String apellidos, String nombres, String contraseña, int numCelular,String usuario){
         this.numCedula = numCedula;
         this.apellidos = apellidos;
         this.nombres = nombres;
-        this.contrasena = contraseña;
+        this.contraseña = contraseña;
         this.numCelular = numCelular;
-        this.tipoUsuario = tipoUsuario;
-        this.usuario = usuario;
+        this.usuario=usuario;
     }
 
     public int getNumCedula() {
         return numCedula;
     }
-    
 
     public void setNumCedula(int numCedula) {
         this.numCedula = numCedula;
@@ -72,12 +58,12 @@ public abstract class Usuario {
         this.nombres = nombres;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public int getNumCelular() {
@@ -88,8 +74,8 @@ public abstract class Usuario {
         this.numCelular = numCelular;
     }
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
+    public String getUsuario() {
+        return usuario;
     }
     
     /**
@@ -97,27 +83,11 @@ public abstract class Usuario {
      */
     public void consultarServicio(){
     }
+   
     
     /**
      * Método que sirve para consultar los datos del vehículo
      */
     public void consultarDatosVehiculo(){
     }
-    /**
-     * Método que devuelve el usuario del Usuario.
-     * 
-     * @return El usuario del Usuario
-     */
-    public String getUsuario() {
-        return usuario;
-    }
-    /**
-     * Método set para el usuario del Usuario.
-     * 
-     * @param usuario El usuario a establecer
-     */
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-    
 }

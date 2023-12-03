@@ -18,12 +18,7 @@ public class TrabajoConArchivos {
      * @param args the command line arguments
      */
      public static void main(String[] arg) {
-        ManejoArchivos.escribirArchivo("archivosalida.txt","Hola!");
-        ManejoArchivos.escribirArchivo("archivosalida.txt","Afios!");
-        ManejoArchivos.escribirArchivo("archivosalida.txt","NUevo!");
-        ManejoArchivos.LeerArchivo("archivo.txt");
-        Date today = Calendar.getInstance().getTime();
-         System.out.println(today);
+        System.out.println(ManejoArchivos.LeerArchivo("usuarios.txt"));
         
         
     }

@@ -5,6 +5,9 @@
 package com.mycompany.proyectop1_amaya_villao_roman;
 
 import Enums.TipoPago;
+import Enums.TipoEntrega;
+import Enums.TipoServicio;
+import java.util.ArrayList;
 import java.time.*;
 
 /**
@@ -19,38 +22,24 @@ public class Taxi extends Servicio{
      * @param origen
      * @param destino
      * @param fecha
-     * @param tiempo
+     * @param hora
      * @param conductor
-     * @param valorPagar
-     * @param numPersonas
      * @param cliente
-     * @param hora_de_partida
+     * @param valorPagar
+     * @param numPersonas 
+     * @param Tiposervicio
      * 
      */
-    public Taxi(String origen, String destino, LocalDate fecha, LocalTime tiempo, Conductor conductor, double valorPagar,Cliente cliente, int numPersonas){
-        super(origen, destino, fecha, tiempo, conductor, valorPagar, cliente);
+    public Taxi(String origen, String destino, LocalDate fecha, LocalTime hora,Conductor conductor, Cliente cliente, double valorPagar, TipoServicio Tiposervicio, int numPersonas){
+        super(origen, destino, fecha, hora, conductor, cliente, valorPagar, Tiposervicio);
         this.numPersonas = numPersonas;
     }
 
-    
-    public int getNumPersonas(){
+    public int getNumPersonas() {
         return numPersonas;
-        
-    }
-
-    
-    public void setNumPersonas(int numPersonas) {    
-        this.numPersonas = numPersonas;
     }
     
-
-        
-    @Override
-    public String toString(){
-        return id+","+tipoentrega+","+cliente.getNumCedula()+","+conductor.getNombres()+","+origen+","+destino+","+fecha+","+tiempo;
-
-    }
-
     
+
     
 }

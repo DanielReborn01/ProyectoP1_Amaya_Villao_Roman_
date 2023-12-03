@@ -4,19 +4,19 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
-import Enums.TipoUsuario;
+import Enums.Disponibilidad;
+import Enums.TipoServicio;
 import java.util.ArrayList;
-import static manejoArchivos.ManejoArchivos.LeerValidando;
 
 /**
  *
  * @author danie
  */
 public class Conductor extends Usuario{
-    String numLicencia;
-    String estado;
-    String codigoVehiculo;
-    private final ArrayList<String[]> datosConductores = LeerValidando("conductores.txt", true); // Datos de los conductores almacenados en un archivo
+    int numLicencia;
+    Disponibilidad estado;
+    Vehiculo vehiculo;
+    
     /**
      * Constructor de la clase Conductor
      * @param numCedula cédula del conductor
@@ -24,60 +24,54 @@ public class Conductor extends Usuario{
      * @param nombres nombres del conductor
      * @param contraseña contraseña del conductor
      * @param numCelular número telefónico del conductor
-     * @param tipoUsuario tipo usuario
      * @param numLicencia licencia del conductor
      * @param estado estado del conductor
      * @param vehiculo vehículo del conductor
+     * @param usuario
      */
-    //constructor
-    public Conductor(int numCedula,String apellidos, String nombres, String contraseña, int numCelular, TipoUsuario tipoUsuario){
-        super(numCedula ,apellidos, nombres, contraseña, numCelular, tipoUsuario);
-        for (String[] dato : datosConductores) {
-            if (dato[0].equals(numCedula)) {
-                this.numLicencia = dato[3];
-                this.estado = dato[1];
-                this.codigoVehiculo = dato[2];
-            }
-        }
+    public Conductor(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, String usuario ,int numLicencia, Disponibilidad estado, Vehiculo vehiculo){
+        super(numCedula, apellidos, nombres, contraseña, numCelular, usuario);
+        this.numLicencia = numLicencia;
+        this.estado = estado;
+        this.vehiculo = vehiculo;
     }
-    
-    public String getNumLicencia() {
+
+    public int getNumLicencia() {
         return numLicencia;
     }
 
-    public void setNumLicencia(String numLicencia) {
+    public void setNumLicencia(int numLicencia) {
         this.numLicencia = numLicencia;
     }
 
-    public String getEstado() {
+    public Disponibilidad getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Disponibilidad estado) {
         this.estado = estado;
     }
 
-    public String getCodigoVehiculo() {
-        return codigoVehiculo;
+    public Vehiculo getVehiculo() {
+        return vehiculo;
     }
 
-    public void setCodigoVehiculo(String codigoVehiculo) {
-        this.codigoVehiculo = codigoVehiculo;
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
-    
     @Override
     public void consultarServicio(){ 
     }
     
     public void consultarServicio(ArrayList<Servicio>ListaServicioConductor){
         for(Servicio s:ListaServicioConductor){
-            if(s.getTipoentrega().equals('E')){
+            if(s.getServicio().equals(TipoServicio.E)){
                 Entrega e=(Entrega)s;    
-                System.out.println("Tipo: Encomienda"+'\n'+ "Tipo Encomienda: "+e.getTipoentrega()+'\n'+"Fecha: "+e.getFecha()+'\n'+"Desde: "+e.getOrigen()+'\n'+"Hasta: "+e.getDestino());
+                System.out.println("Tipo: Encomienda"+'\n'+ "Tipo Encomienda: "+e.getServicio()+'\n'+"Fecha: "+e.getFecha()+'\n'+"Desde: "+e.getOrigen()+'\n'+"Hasta: "+e.getDestino());
             }
-            else if(s.getTipoentrega().equals('T')){
+            else if(s.getServicio().equals(TipoServicio.T)){
                 Taxi t=(Taxi)s;
-                System.out.println("Tipo: Taxi"+'\n'+ "Tipo Taxi: "+t.getTipoentrega()+'\n'+"Fecha: "+t.getFecha()+'\n'+"Desde: "+t.getOrigen()+'\n'+"Hasta: "+t.getDestino());
+                System.out.println("Tipo: Taxi"+'\n'+ "Tipo Taxi: "+t.getServicio()+'\n'+"Fecha: "+t.getFecha()+'\n'+"Desde: "+t.getOrigen()+'\n'+"Hasta: "+t.getDestino());
                 
             }
         
@@ -87,14 +81,13 @@ public class Conductor extends Usuario{
     
     public void consultarDatosVehiculo(ArrayList<Vehiculo>Listavehiculo){
             for(Vehiculo v:Listavehiculo){
-                if(v.getCodigoVehiculo().equals(codigoVehiculo)){    
-                    System.out.println(v.getCodigoVehiculo()+" "+v.getMarca()+" "+v.getModelo()+" "+v.getPlaca()+" "+v.getTipoVehiculo());
+                if(v.getCodigoVehiculo()==vehiculo.getCodigoVehiculo()){    
+                    System.out.println(v.getCodigoVehiculo()+" "+v.getMarca()+" "+v.getModelo()+" "+v.getPlaca()+" "+v.getTipovehiculo());
 
                 }    
             }
             
-        }
-}
-    //public void 
+        }    
     
-
+    
+}

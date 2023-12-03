@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
+
 import Enums.TipoPago;
 import java.util.Random;
+
 /**
  *
  * @author GabrielVillao
@@ -38,8 +40,8 @@ public class Pago {
 
 
     
-    public double viajes(String tipopago){
-        if(tipopago.equals("TC")){
+    public double viajes(TipoPago tipopago){
+        if(tipopago.equals(TipoPago.TARJETA)){
             return ((subtotal*0.5)*0.10)+(subtotal*0.5);
 
 
@@ -48,7 +50,9 @@ public class Pago {
             return subtotal*0.5;
         }
         
-
-        
     }
+   
+    
 }
+    
+

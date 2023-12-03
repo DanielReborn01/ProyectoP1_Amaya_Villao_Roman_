@@ -8,11 +8,11 @@ package Enums;
  *
  * @author GabrielVillao
  */
-public enum TipoUsuario {
+public enum TipoVehiculo {
+    A,
 
     /**
-     *Este el tipoUsuario que define si es vehiculo o una moto
-     * 
+     *
      */
-    R,C
+    M
 }

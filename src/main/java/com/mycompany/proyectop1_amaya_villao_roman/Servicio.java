@@ -4,44 +4,49 @@
  */
 package com.mycompany.proyectop1_amaya_villao_roman;
 
-import java.util.ArrayList;
 import Enums.TipoEntrega;
+import Enums.TipoServicio;
+import java.util.ArrayList;
 import java.time.*;
+
+
+
 /**
  *
  * @author danie
  */
 public class Servicio {
+    protected int id;
     protected String origen;
     protected String destino;
     protected LocalDate fecha;
-    protected LocalTime tiempo;
+    protected LocalTime hora;
     protected Conductor conductor;
-    double ValorPagar;
-    protected TipoEntrega tipoentrega;
+    protected double ValorPagar;
+    protected TipoServicio Tiposervicio;
     protected Cliente cliente;
     
-    protected int id;
     
     /**
      * Constructor de la clase Servicio
      * @param origen
      * @param destino
      * @param fecha
-     * @param tiempo
+     * @param hora
      * @param conductor
-     * @param valorPagar
      * @param cliente
+     * @param valorPagar 
+     * @param Tiposervicio
      */
-    public Servicio(String origen,String destino, LocalDate fecha,LocalTime tiempo, Conductor conductor, double valorPagar, Cliente cliente){
+    public Servicio(String origen,String destino, LocalDate fecha,LocalTime hora, Conductor conductor, Cliente cliente,double valorPagar, TipoServicio Tiposervicio){
         this.origen=origen;
         this.destino=destino;
         this.fecha = fecha;
-        this.tiempo=tiempo;
+        this.hora=hora;
         this.conductor = conductor;
-        this.ValorPagar = valorPagar;
         this.cliente=cliente;
-        this.id=2000;
+        this.ValorPagar = valorPagar;
+        this.Tiposervicio=Tiposervicio;
         id=id+1;
     }
     
@@ -50,11 +55,7 @@ public class Servicio {
      * Este método se encarga del pago del servicio
      * @param valorPagar es el valor que el cliente debe pagar
      */
-    public void pagoServicio(double valorPagar){
-        
-    }
-        
-    
+
 
     public String getOrigen() {
         return origen;
@@ -80,8 +81,8 @@ public class Servicio {
         this.fecha = fecha;
     }
 
-    public LocalTime getTiempo() {
-        return tiempo;
+    public LocalTime getHora() {
+        return hora;
     }
     
 
@@ -101,21 +102,27 @@ public class Servicio {
         this.ValorPagar = ValorPagar;
     }
 
-    public TipoEntrega getTipoentrega() {
-        return tipoentrega;
+    public TipoServicio getServicio() {
+        return Tiposervicio;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public TipoServicio getTiposervicio() {
+        return Tiposervicio;
     }
 
     public Cliente getCliente() {
         return cliente;
     }
     
-    public String toString(){
-        return id+"/"+tipoentrega+"/"+cliente.getNumCedula()+"/"+conductor.getNombres()+"/"+origen+"/"+destino+"/"+fecha+"/"+tiempo;
-    }
-    
-    public double valorRuta(){
-        return ValorPagar;
-    }
+
     
     
 }

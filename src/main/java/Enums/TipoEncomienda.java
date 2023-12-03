@@ -8,11 +8,6 @@ package Enums;
  *
  * @author GabrielVillao
  */
-public enum TipoUsuario {
-
-    /**
-     *Este el tipoUsuario que define si es vehiculo o una moto
-     * 
-     */
-    R,C
+public enum TipoEncomienda {
+    MEDICAMENTOS,DOCUMENTOS,ROPA
 }

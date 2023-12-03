@@ -2,154 +2,157 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
+
 package com.mycompany.proyectop1_amaya_villao_roman;
 
-import Enums.TipoEntrega;
-import Enums.TipoPago;
 import Enums.TipoUsuario;
 import java.util.ArrayList;
+import static manejoArchivos.ManejoArchivos.LeerValidando;
+import Enums.TipoVehiculo;
+import Enums.Disponibilidad;
+import Enums.TipoEntrega;
+import Enums.TipoPago;
+import Enums.TipoServicio;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 import manejoArchivos.ManejoArchivos;
-import static manejoArchivos.ManejoArchivos.LeerValidando;
-import static manejoArchivos.ManejoArchivos.escribirArchivo;
-import java.util.Date;
-import java.time.*;
 /**
  *
  * @author danie
  */
 public class Sistema_Servicios {
-
-    static ArrayList<Usuario> listaUsuarios;
-    static ArrayList<Vehiculo> listaVehiculos;
-    static ArrayList<Servicio> listaServicios;
+    static ArrayList<Usuario> listaUsuarios=new ArrayList<>();
+    static ArrayList<Vehiculo> listaVehiculos=new ArrayList<>();
+    static ArrayList<Servicio> listaServicios=new ArrayList<>();
     
-
-
+    /**
+     * Metodo que muestra el menu del usuario tipo cliente
+     */
+    
+    /** Se crean los  3 métodos de la clase principal y el método main*/
+    public static void iniciarSesion(){
+        
+    }
     public static void mostrarMenuCliente() {
-        System.out.println("1. Solicitar servicio de taxi\n2. Solicitar entrega encomienda\n3.Consultar servicios");
+        System.out.println("1. Solicitar servicio de taxi\n2. Solicitar comida a domicilio\n3. Solicitar entrega encomienda\n4.Consultar servicios");
 
     }
-
     public static void mostrarMenuConductor() {
         System.out.println("1. Consultar servicio asignado\n2. Datos de su vehículo");
 
     }
-    
-
-    public static void cargarVehiculo(){
-        ArrayList<String[]> datosVehiculo = LeerValidando("vehiculos.txt", true);
-        for (String[] dato : datosVehiculo){
-            listaVehiculos.add(new Vehiculo(dato[0],dato[1],dato[2],dato[3],dato[4]));
+    public static void cargarVehiculos(){
+        ArrayList<String[]> datosVehiculos = LeerValidando("vehiculos.txt", true);
+        for(String[] vehiculo:datosVehiculos){
+            listaVehiculos.add(new Vehiculo(vehiculo[1], vehiculo[2], vehiculo[3], Integer.parseInt(vehiculo[0]), TipoVehiculo.valueOf(vehiculo[4])));
         }
+        
     }
-    /**
-     * Metodo que lee el archivo Usuarios y crea los objetos de los mismos para
-     * agregarlos a la lista de Usuarios
-     */
+    
     public static void cargarUsuarios() {
         // Código para leer el archivo "usuarios.txt" y crear objetos de Usuario
         // basado en los datos leídos. Luego, los objetos se agregan a la lista de Usuarios.
-        ArrayList<String[]> datosUsuarios = LeerValidando("usuarios.txt", false);
+        ArrayList<String[]> datosUsuarios = LeerValidando("usuarios.txt", true);
         for (String[] dato : datosUsuarios) {
             switch (dato[6]) {
                 case "C" -> {
-                    listaUsuarios.add(new Cliente(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]), TipoUsuario.valueOf(dato[5])));
-
+                    listaUsuarios.add(new Cliente(Integer.parseInt(dato[0]),dato[2],dato[1],dato[4],Integer.parseInt(dato[5]),dato[3],0,0));
                     break;
                 }
                 case "R" -> {
-                    listaUsuarios.add(new Conductor(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]), TipoUsuario.valueOf(dato[5])));
-                    break;
+                    ArrayList<String[]> datosConductor = LeerValidando("conductores.txt", true);
+                    ArrayList<String[]> datosVehiculo = LeerValidando("vehiculos.txt", true);
+                    
+                    for(String[] conductor:datosConductor){
+                        if(conductor[0].equals(dato[0])){
+                            for(String[] vehiculos:datosVehiculo){
+                                if(conductor[2].equals(vehiculos[0])){
+                                    Vehiculo v2=new Vehiculo(vehiculos[1],vehiculos[2],vehiculos[3],Integer.parseInt(vehiculos[0]),TipoVehiculo.valueOf(vehiculos[4]));
+                                    
+                                    listaUsuarios.add(new Conductor(Integer.parseInt(dato[0]), dato[2], dato[1], dato[4], Integer.parseInt(dato[5]),dato[3],Integer.parseInt(conductor[0]),Disponibilidad.valueOf(conductor[1]),v2));
+                                    //listaVehiculos.add(v2);
+                                    break;
+                                }
+                            }    
+                        }
+                    }
+
+
                 
                 }
             }
         }
     }
-
-
-    /**
-     *
-     * Escrbie en el ficehero pagos.txt todos los pagos que se ha realizado
-     *
-     * @param pago El pago que se realizo
-     */
-    /*public static void createPago(Pago pago) {
-        // Código para crear un pago y guardar la información en un archivo.
-        ManejoArchivos.escribirArchivo("pagos.txt", pago.toString());
-    }*/
-    public static void crearCliente(Cliente cliente){
-        //código para crear a los clientes que ingresan por primera vez y deben colocar sus datos
-        ManejoArchivos.escribirArchivo("clientes.txt", cliente.toString());
-
-    }
-    
 
     public static Conductor buscarConductores(){
         ArrayList<String[]> datosConductor = LeerValidando("conductores.txt", true);
+        ArrayList<String[]> datosVehiculo = LeerValidando("vehiculos.txt", true);
+        
         for(String[] conductor:datosConductor){
             if(conductor[1].equals("D")){
                 System.out.println(datosConductor.indexOf(conductor[0])+". "+conductor[0]+" "+conductor[1]+" "+conductor[2]+" "+conductor[3]);
-                
-            }
-        }
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Elija una Opción");
-        int opcion=sc.nextInt();
-        System.out.println("Usted ha elegido la opción: "+opcion);
-        String[] cond=datosConductor.get(opcion);
-        int cedulaConductor=Integer.parseInt(cond[0]);
-        for(Usuario listaU:listaUsuarios){
-            if(listaU instanceof Conductor){
-                if(listaU.getNumCedula()==cedulaConductor){
-                    System.out.println(listaU.getNumCedula()+listaU.getNumCelular());
-                    return new Conductor(cedulaConductor,listaU.getApellidos(),listaU.getNombres(),listaU.getContrasena(),listaU.getNumCelular(),listaU.getTipoUsuario());
+                Scanner sc1=new Scanner(System.in);
+                System.out.println("Ingrese el número del conductor con el que desea ir: ");
+                int opcion=sc1.nextInt();
+                for(Usuario usuario:listaUsuarios){
+                    if (usuario instanceof Conductor) {
+                        
+                        String[] opcionEscogida=datosConductor.get(opcion);
+                        if(usuario.getNumCedula()==Integer.parseInt(opcionEscogida[0])){
+                            for(String[] vehiculos:datosVehiculo){
+                                if(opcionEscogida[2].equals(vehiculos[0])){
+                                    Vehiculo v2=new Vehiculo(vehiculos[1],vehiculos[2],vehiculos[3],Integer.parseInt(vehiculos[0]),TipoVehiculo.valueOf(vehiculos[4]));                            
+                                    Conductor c1=new Conductor(usuario.getNumCedula(), usuario.getApellidos(), usuario.getNombres(), usuario.getContraseña(),  usuario.getNumCelular(), usuario.getUsuario(), Integer.parseInt(opcionEscogida[0]), Disponibilidad.D, v2);
+                                    return c1;
+
+                                }
+                            }   
+                        } 
+                    }
                 }
-            }
-            
-        }
-        return null;   
+                //Conductor c1=new Conductor(int numCedula, String apellidos, String nombres, String contraseña, int numCelular, String usuario ,String numLicencia, Disponibilidad estado, Vehiculo vehiculo);
+            } 
+        }       
+        return null;
     }
-        
     
-    
-    
-    public void crearServicios(){
+        public static void crearServicios(){
         int id=0;
         for(Servicio ser:listaServicios){
-            ManejoArchivos.escribirArchivo("servicios.txt", id+","+ser.getTipoentrega()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
+            ManejoArchivos.EscribirArchivo("servicios.txt", id+","+ser.getServicio()+","+ser.getCliente().getNumCedula()+","+ser.getConductor().nombres+","+ser.getOrigen()+","+ser.getDestino()+","+ser.getFecha()); 
             id=id+1;
         }
         
         
 
-    }
-
+        }
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        //CARGANDO LISTAS
-        Sistema_Servicios.cargarUsuarios();
-
-        String sesion = "n";
-
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
         System.out.println("         BIENVENIDO AL SISTEMA          ");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
-
-        //Inicio de sesión
+        
+        
+        cargarVehiculos();
+        cargarUsuarios();
+        System.out.println(listaUsuarios);
+        String sesion = "n";
+        Scanner sc=new Scanner(System.in);
         while (sesion.equals("n")) {
-
+             
+            
             System.out.print("USUARIO: ");
             String user = sc.nextLine();
             System.out.print("CONTRASEÑA: ");
             String password = sc.nextLine();
-
+            
             //Validar información
             for (Usuario usuario : listaUsuarios) {
-                if (usuario.getUsuario().equals(user) && usuario.getContrasena().equals(password)) {
+                System.out.println(usuario);
+                if (usuario.getUsuario().equals(user) && usuario.getContraseña().equals(password)) {
                     System.out.println("INGRESO EXITOSO");
-
-                    //Comprobanco si el usuario es un conductor
+                    
                     if (usuario instanceof Conductor ) {
                         Conductor conductor=(Conductor)usuario;
                         Sistema_Servicios.mostrarMenuConductor();
@@ -174,11 +177,13 @@ public class Sistema_Servicios {
                             }
                         }
                     }
+                
 
                     //Comprobando si el usuario es un cliente
                     if (usuario instanceof Cliente) {
                         Cliente cliente = (Cliente) usuario;
-                        Sistema_Servicios.mostrarMenuCliente();
+                        
+                        mostrarMenuCliente();
                         int opc = 0;
                         while (opc != 5) {
                             System.out.println("Ingrese opcion: ");
@@ -190,60 +195,123 @@ public class Sistema_Servicios {
 
 
                                     //if(usuario.getNumCedula().equals())
-                                    System.out.println("Cuantos pasajeros van a viajar : ");
+                                    System.out.println("¿Cuantos pasajeros van a viajar? : ");
                                     int pas=sc1.nextInt();
-                                    System.out.println("Origen:");
+                                    System.out.println("¿Desde donde va a partir?: ");
                                     String or=sc1.nextLine();
-                                    System.out.println("Destino:");
+                                    System.out.println("¿A que lugar prefiere ir?: ");
                                     String des=sc1.nextLine();
-                                    System.out.println("Tipo de pago (TC/E): ");
-                                    String pago=sc1.nextLine();
+                                    
+                                    System.out.println("¿Cual va a ser su tipo de pago?: ");
+                                    TipoPago tipopago=null;
+                                    int opciones=sc.nextInt();
+                                    switch(opciones){
+                                        case 1:
+                                            tipopago=TipoPago.TARJETA;
+                                            break;
+                                        case 2:
+                                            tipopago=TipoPago.EFECTIVO;
+                                            break;
+                                        default: 
+                                            System.out.println("Opcion no valida");
+                                            
+                                        
+                                    }
+                                    
                                     Pago pago1=new Pago();
-                                    double paga=pago1.viajes(pago);
+                                    double paga=pago1.viajes(tipopago);
                                     System.out.println("Conductores disponibles");
-                                    Sistema_Servicios.buscarConductores();
+                                    Conductor cond=Sistema_Servicios.buscarConductores();
                                     LocalDate D1=LocalDate.now();
                                     LocalTime tiempo=LocalTime.now();
-                                    Conductor cond=buscarConductores();
+           
                                     
-                                    Taxi t1=new Taxi(or, des, D1, tiempo, cond, paga,cliente, pas);
+                                            
+                                    Taxi t1=new Taxi(or, des, D1, tiempo, cond, cliente ,paga,TipoServicio.T, pas);
                                     //Conductor conductor1=(Conductor)usuario;
                                     //Taxi tax=new Taxi(or,des,fecha,conductor1,);
-                                    Conductor c1=new Conductor(usuario.getNumCedula(),usuario.getApellidos(), usuario.getNombres(), usuario.getContrasena(), usuario.getNumCelular(), usuario.getTipoUsuario());
+                                    
+                                    
+                                    ManejoArchivos.EscribirArchivo("pagos.txt", pago1.getId_pago()+","+D1+","+t1.id+","+paga+","+cliente.numCedula+","+(pago1.getSubtotal()*0.5)+","+paga); 
+                                    ManejoArchivos.EscribirArchivo("viajes.txt",t1.id+","+pas+","+pago1.getSubtotal()+","+paga); 
+                                    
+                                    Servicio s1=t1;
+                                    listaServicios.add(s1);
+                                    Sistema_Servicios.crearServicios();
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
 
                                     
                                 
                                 case 2 -> {
-                                    int i = 0;
-                                    System.out.println("Qué tipo de encomienda desea hacer?");
-                                    TipoEntrega tipoEncomienda = TipoEntrega.valueOf(sc.nextLine());
-                                    System.out.println("Ingrese cuántos productos va a pedir");
-                                    String cantidad = sc.nextLine();
-                                    System.out.println("Ingrese el peso de todo");
-                                    String peso = sc.nextLine();
-                                    String subtotal = "5.0";
-                                    String linea = i++ +","+tipoEncomienda+","+cantidad+","+peso+","+subtotal;
-                                    escribirArchivo("encomiendas.txt", linea);
+                                    System.out.println("Lugar de donde se retiraria la Encomienda: ");
+                                    String or=sc.nextLine();
+                                    System.out.println("¿A que lugar lo desea enviar?: ");
+                                    String des=sc.nextLine();
+                                    System.out.println("Qué tipo de encomienda desea hacer?(MEDICINA/ROPA/DOCUMENTOS)");
+                                    int opcion=sc.nextInt();
+                                    TipoEntrega tipoentrega=null;
+                                    switch(opcion){
+                                        case 1:
+                                            System.out.println("1. MEDICAMENTOS");
+                                            tipoentrega=TipoEntrega.MEDICAMENTOS;
+                                        case 2:
+                                            System.out.println("2. ROPA");
+                                            tipoentrega=TipoEntrega.ROPA;
+                                        case 3:
+                                            System.out.println("3. DOCUMENTOS");
+                                            tipoentrega=TipoEntrega.DOCUMENTOS;
+                                        default:
+                                            System.out.println("Opción no valida");
+                                    }
+                                    System.out.println("Ingrese cuántos productos va a pedir: ");
+                                    int cantidad = sc.nextInt();
+                                    
+                                    LocalDate fecha=LocalDate.now();
+                                    LocalTime tiempo=LocalTime.now();
+                                    System.out.println("Ingrese el peso: ");
+                                    int peso = sc.nextInt();
+                                    double subtotal = 4.0;
+                                    System.out.println("Como desea pagar?(TC/E)");
+                                    TipoPago tipopago=null;
+                                    int opciones=sc.nextInt();
+                                    switch(opciones){
+                                        case 1:
+                                            tipopago=TipoPago.TARJETA;
+                                            break;
+                                        case 2:
+                                            tipopago=TipoPago.EFECTIVO;
+                                            break;
+                                        default: 
+                                            System.out.println("Opcion no valida");
+                                            
+                                        
+                                    }
+                                    System.out.println("Conductores disponibles: ");
+                                    Sistema_Servicios.buscarConductores();
+                                    Conductor cond=buscarConductores();
+                                    
+                                    //String linea = i++ +","+tipoEncomienda+","+cantidad+","+peso+","+subtotal;
+                                    //
+                                    Entrega entrega=new Entrega(or, des, fecha, tiempo, cond, cliente, subtotal,TipoServicio.E, cantidad, tipopago, tipoentrega, peso);
+                                    ManejoArchivos.EscribirArchivo("encomiendas.txt", entrega.toString());
+                                    Servicio s1=entrega;
+                                    listaServicios.add(s1);
+
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
                                 case 3 ->{
-                                    cliente.consultarServicio(listaServicios);
+                                    cliente.consultarServicio();
                                     Sistema_Servicios.mostrarMenuCliente();
                                 }
-                                default ->
+                                default ->{
                                     System.out.println("Opcion invalida");
+                                }    
                             }
-                        }
-                    }
-                }
+                        }                   
+                }   }     
+        
             }
-        }
-
-        System.out.println("Desea Salir del programa No (n) Si(s):");
-        sesion = sc.nextLine();
-
+        }    
     }
-
 }
