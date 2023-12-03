@@ -10,4 +10,5 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.mycompany.proyectop1_amaya_villao_roman.ProyectoP1_Amaya_Villao_Roman</exec.mainClass>
     </properties>
+    <name>ProyectoP1_Amaya_Villao_Roman2</name>
 </project>
