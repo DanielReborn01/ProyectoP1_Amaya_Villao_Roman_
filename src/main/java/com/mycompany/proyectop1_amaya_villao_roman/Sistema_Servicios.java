@@ -49,28 +49,11 @@ public class Sistema_Servicios {
         }
         
     }
-    
-    public static void cargarUsuarios() {
-        // Código para leer el archivo "usuarios.txt" y crear objetos de Usuario
+     // Código para leer el archivo "usuarios.txt" y crear objetos de Usuario
         // basado en los datos leídos. Luego, los objetos se agregan a la lista de Usuarios.
+    public static void cargarUsuarios() {
+       
         ArrayList<String[]> datosUsuarios = LeerValidando("usuarios.txt", true);
-        for (String[] dato : datosUsuarios) {
-            switch (dato[6]) {
-                case "C" -> {
-                    listaUsuarios.add(new Cliente(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]),(dato[5]),0,0));
-
-                    break;
-                }
-                case "R" -> {
-                    listaUsuarios.add(new Conductor(Integer.parseInt(dato[0]), dato[1], dato[2], dato[3], Integer.parseInt(dato[4]),dato[5],null,null ));
-                    break;
-                
-                }
-            }
-        }
-    }
-
-        /*
         for (String[] dato : datosUsuarios) {
             switch (dato[6]) {
                 case "C" -> {
@@ -94,13 +77,11 @@ public class Sistema_Servicios {
                             }    
                         }
                     }
-
-
                 
                 }
             }
         }
-        */
+        
     }
 
     public static Conductor buscarConductores(){
@@ -147,9 +128,9 @@ public class Sistema_Servicios {
         }
     
     public static void main(String[] args) {
-        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++");
         System.out.println("         BIENVENIDO AL SISTEMA          ");
-        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++");
         
         
         cargarVehiculos();
