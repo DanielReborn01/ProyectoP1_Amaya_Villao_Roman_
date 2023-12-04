@@ -168,7 +168,7 @@ public class Sistema_Servicios {
                             if (opc2 == 1) {
                                 conductor.consultarServicio(listaServicios);
                                 System.out.println("Desea continuar en la página?");
-                                System.out.println("1. Si /n2. No ");
+                                System.out.println("1. Si /n2. No /n3. Volver a la página principal");
                                 
                                 int opcion=sc.nextInt();
                                 switch(opcion){
@@ -178,13 +178,15 @@ public class Sistema_Servicios {
                                     case 2:
                                         System.out.println("No");
                                         break;
+                                    case 3:
+                                        continue;
                                     default:
                                         System.out.println("Opcion no valida");
                                 }
                             } else if (opc2 == 2) {
                                 conductor.consultarDatosVehiculo(listaVehiculos);
                                 System.out.println("Desea continuar en la página?");
-                                System.out.println("1. Si /n2. No ");
+                                System.out.println("1. Si /n2. No /n3. Volver a la página principal");
                             
                                 int opcion=sc.nextInt();
                                 
@@ -195,6 +197,8 @@ public class Sistema_Servicios {
                                     case 2:
                                         System.out.println("No");
                                         break;
+                                    case 3:
+                                        continue;
                                     default:
                                         System.out.println("Opcion no valida");
                             }
@@ -271,7 +275,7 @@ public class Sistema_Servicios {
                             listaServicios.add(s1);
                             Sistema_Servicios.crearServicios();
                             System.out.println("Desea continuar en la página?");
-                            System.out.println("1. Si /n2. No ");
+                            System.out.println("1. Si /n2. No /n3. Volver a la página principal");
                             int opcion=sc.nextInt();
                             switch(opcion){
                                     case 1:
@@ -280,6 +284,8 @@ public class Sistema_Servicios {
                                     case 2:
                                         System.out.println("No");
                                         break;
+                                    case 3:
+                                        continue;
                                     default:
                                         System.out.println("Opcion no valida");
                             }
@@ -336,7 +342,7 @@ public class Sistema_Servicios {
                             Servicio s1 = entrega;
                             listaServicios.add(s1);
                             System.out.println("Desea continuar en la página?");
-                            System.out.println("1. Si /n2. No ");
+                            System.out.println("1. Si /n2. No /n3. Volver a la página principal");
 
                             int opcion1=sc.nextInt();
                             switch(opcion1){
@@ -346,13 +352,15 @@ public class Sistema_Servicios {
                                     case 2:
                                         System.out.println("No");
                                         break;
+                                    case 3:
+                                        continue;
                                     default:
                                         System.out.println("Opcion no valida");
                             }
                         } else if (opc == 3) {
                             cliente.consultarServicio();
                             System.out.println("Desea continuar en la página");
-                            System.out.println("1. Si /n2. No ");
+                            System.out.println("1. Si /n2. No /n3. volver a la página principal");
                             int opcion=sc.nextInt();
                             switch(opcion){
                                     case 1:
@@ -361,6 +369,8 @@ public class Sistema_Servicios {
                                     case 2:
                                         System.out.println("No");
                                         break;
+                                    case 3:
+                                        continue;
                                     default:
                                         System.out.println("Opcion no valida");
                             }
