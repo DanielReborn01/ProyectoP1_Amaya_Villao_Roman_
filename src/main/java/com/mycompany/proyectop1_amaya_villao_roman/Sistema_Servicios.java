@@ -166,8 +166,32 @@ public class Sistema_Servicios {
 
                             if (opc2 == 1) {
                                 conductor.consultarServicio(listaServicios);
+                                System.out.println("Desea continuar en la página?");
+                                int opcion=sc.nextInt();
+                                switch(opcion){
+                                    case 1:
+                                        System.out.println("Si");
+                                        Sistema_Servicios.mostrarMenuConductor();
+                                    case 2:
+                                        System.out.println("No");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                }
                             } else if (opc2 == 2) {
                                 conductor.consultarDatosVehiculo(listaVehiculos);
+                                System.out.println("Desea continuar en la página?");
+                                int opcion=sc.nextInt();
+                                switch(opcion){
+                                    case 1:
+                                        System.out.println("Si");
+                                        Sistema_Servicios.mostrarMenuConductor();
+                                    case 2:
+                                        System.out.println("No");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                            }
                             } else {
                                 System.out.println("Opcion invalida");
                             }
@@ -237,7 +261,18 @@ public class Sistema_Servicios {
                             Servicio s1 = t1;
                             listaServicios.add(s1);
                             Sistema_Servicios.crearServicios();
-                            Sistema_Servicios.mostrarMenuCliente();
+                                                        System.out.println("Desea continuar en la página?");
+                            int opcion=sc.nextInt();
+                            switch(opcion){
+                                    case 1:
+                                        System.out.println("Si");
+                                        Sistema_Servicios.mostrarMenuCliente();
+                                    case 2:
+                                        System.out.println("No");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                            }
                         } else if (opc == 2) {
                             System.out.println("Lugar de donde se retiraria la Encomienda: ");
                             String or = sc.nextLine();
@@ -290,11 +325,32 @@ public class Sistema_Servicios {
                             ManejoArchivos.EscribirArchivo("encomiendas.txt", entrega.toString());
                             Servicio s1 = entrega;
                             listaServicios.add(s1);
-
-                            Sistema_Servicios.mostrarMenuCliente();
+                            System.out.println("Desea continuar en la página?");
+                            int opcion1=sc.nextInt();
+                            switch(opcion1){
+                                    case 1:
+                                        System.out.println("Si");
+                                        Sistema_Servicios.mostrarMenuCliente();
+                                    case 2:
+                                        System.out.println("No");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                            }
                         } else if (opc == 3) {
                             cliente.consultarServicio();
-                            Sistema_Servicios.mostrarMenuCliente();
+                            System.out.println("Desea continuar en la página?");
+                            int opcion=sc.nextInt();
+                            switch(opcion){
+                                    case 1:
+                                        System.out.println("Si");
+                                        Sistema_Servicios.mostrarMenuCliente();
+                                    case 2:
+                                        System.out.println("No");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                            }
                         } else {
                             System.out.println("Opción inválida");
                         }
