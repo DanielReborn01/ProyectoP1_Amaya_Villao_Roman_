@@ -133,6 +133,7 @@ public class Sistema_Servicios {
 
     }
 
+
     public static void main(String[] args) {
         System.out.println("+++++++++++++++++++++++++++++++++++++++++");
         System.out.println("         BIENVENIDO AL SISTEMA          ");
@@ -167,6 +168,8 @@ public class Sistema_Servicios {
                             if (opc2 == 1) {
                                 conductor.consultarServicio(listaServicios);
                                 System.out.println("Desea continuar en la página?");
+                                System.out.println("1. Si /n2. No ");
+                                
                                 int opcion=sc.nextInt();
                                 switch(opcion){
                                     case 1:
@@ -181,7 +184,10 @@ public class Sistema_Servicios {
                             } else if (opc2 == 2) {
                                 conductor.consultarDatosVehiculo(listaVehiculos);
                                 System.out.println("Desea continuar en la página?");
+                                System.out.println("1. Si /n2. No ");
+                            
                                 int opcion=sc.nextInt();
+                                
                                 switch(opcion){
                                     case 1:
                                         System.out.println("Si");
@@ -209,7 +215,10 @@ public class Sistema_Servicios {
                         System.out.println("Coloque su num de tarjeta:");
                         int numTarjeta = sc.nextInt();
                         cliente.setNumTarjeta(numTarjeta);
-
+                        
+                    }
+                    else{
+                        System.out.println("Ya se encuentra registrado");
                     }
 
                     mostrarMenuCliente();
@@ -261,7 +270,8 @@ public class Sistema_Servicios {
                             Servicio s1 = t1;
                             listaServicios.add(s1);
                             Sistema_Servicios.crearServicios();
-                                                        System.out.println("Desea continuar en la página?");
+                            System.out.println("Desea continuar en la página?");
+                            System.out.println("1. Si /n2. No ");
                             int opcion=sc.nextInt();
                             switch(opcion){
                                     case 1:
@@ -326,6 +336,8 @@ public class Sistema_Servicios {
                             Servicio s1 = entrega;
                             listaServicios.add(s1);
                             System.out.println("Desea continuar en la página?");
+                            System.out.println("1. Si /n2. No ");
+
                             int opcion1=sc.nextInt();
                             switch(opcion1){
                                     case 1:
@@ -339,7 +351,8 @@ public class Sistema_Servicios {
                             }
                         } else if (opc == 3) {
                             cliente.consultarServicio();
-                            System.out.println("Desea continuar en la página?");
+                            System.out.println("Desea continuar en la página");
+                            System.out.println("1. Si /n2. No ");
                             int opcion=sc.nextInt();
                             switch(opcion){
                                     case 1:
