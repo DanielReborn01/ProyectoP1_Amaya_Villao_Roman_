@@ -182,7 +182,14 @@ public class Sistema_Servicios {
                     //Comprobando si el usuario es un cliente
                     if (usuario instanceof Cliente) {
                         Cliente cliente = (Cliente) usuario;
-                        
+                        if(cliente.getEdad()==0 && cliente.getNumTarjeta()==0){
+                            System.out.println("Coloque su edad: ");
+                            int edad=sc.nextInt();
+                            cliente.setEdad(edad);
+                            System.out.println("Coloque su numero de tarjeta: ");
+                            int numTarjeta=sc.nextInt();
+                            cliente.setNumTarjeta(numTarjeta);
+                        }
                         mostrarMenuCliente();
                         int opc = 0;
                         while (opc != 5) {
