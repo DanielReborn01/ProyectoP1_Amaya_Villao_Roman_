@@ -1,3 +1,4 @@
-cedula,estado,codigoVehiculo,numLicencia
-0986353323,O,21,12345678
-0987654321,D,01,76543224
+cedula,estado,codigoVehiculo
+0923543621,D,23
+0945698598,O,01
+0986353323,D,28
